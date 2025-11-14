@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Statistik Writing – Premium Statistikberatung für Abschlussarbeiten (R & SPSS)</title>
+    <meta name="description" content="Premium-Statistikberatung für Bachelor-, Master- und Promotionsarbeiten. Full Service: Datenaufbereitung, R/SPSS-Analyse, Visualisierung sowie schriftlicher Ergebnis-Teil mit Review. Ethik-konform, diskret, express verfügbar. Erstgespräch über Calendly." />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Structured Data: Service -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Statistik Writing",
+      "description": "Premium-Statistikberatung für Abschlussarbeiten (Bachelor, Master, Promotion) – Full Service von Datenaufbereitung bis schriftlichem Ergebnis-Teil mit Review. R/SPSS, reproduzierbare Workflows, ethik-konform.",
+      "areaServed": "DE, AT, CH",
+      "serviceType": "Statistische Beratung Abschlussarbeiten",
+      "brand": {"@type": "Brand", "name": "Statistik Writing"},
+      "sameAs": [],
+      "url": "https://example.com",
+      "telephone": "+49-0000-000000",
+      "offers": {"@type": "Offer", "price": "Auf Anfrage", "priceCurrency": "EUR"}
+    }
+    </script>
+</head>
+<body class="bg-white">
+  
+  <!-- Floating Edit UI -->
+  <style>
+    .sw-edit-ui{position:fixed;right:16px;bottom:16px;z-index:9999;display:flex;gap:8px}
+    .sw-edit-ui button{background:#1d4ed8;color:#fff;border:none;border-radius:9999px;padding:10px 14px;font-weight:600;box-shadow:0 4px 12px rgba(0,0,0,.15)}
+    .sw-edit-ui button:hover{background:#2563eb}
+    .sw-editing [contenteditable="true"]{outline:2px dashed #60a5fa; outline-offset:4px;}
+  </style>
+  <div class="sw-edit-ui">
+    <button id="swToggleEdit" aria-pressed="false">✏️ Edit-Modus</button>
+    <button id="swSaveHtml">⬇️ Speichern</button>
+  </div>
+  <script>
+    (function(){
+      const toggleBtn = document.getElementById('swToggleEdit');
+      const saveBtn = document.getElementById('swSaveHtml');
+      let editing = false;
+      const editableSelectors = 'main h1, main h2, main h3, main p, main li, main span, main a, main button, main blockquote, main figcaption';
+
+      function setEditable(on){
+        document.body.classList.toggle('sw-editing', on);
+        document.querySelectorAll(editableSelectors).forEach(el=>{
+          if(el.tagName === 'A'){
+            el.setAttribute('data-original-href', el.getAttribute('href'));
+          }
+          el.contentEditable = on ? 'true' : 'false';
+        });
+        try {
+          if(typeof window.rebuildHandles === 'function'){ window.rebuildHandles(); }
+        } catch(e){}
+      }
+
+      window.__swSetEditable = setEditable;
+
+      toggleBtn.addEventListener('click', ()=>{
+        editing = !editing;
+        toggleBtn.setAttribute('aria-pressed', String(editing));
+        toggleBtn.textContent = editing ? '✅ Edit-Modus aktiv' : '✏️ Edit-Modus';
+        setEditable(editing);
+      });
+
+      saveBtn.addEventListener('click', ()=>{
+        const wasEditing = editing; if(wasEditing){ toggleBtn.click(); }
+        const docString = '<!DOCTYPE html>' + document.documentElement.outerHTML;
+        const blob = new Blob([docString], {type: 'text/html;charset=utf-8'});
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'statistik-writing.html';
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        URL.revokeObjectURL(url);
+        if(wasEditing){ toggleBtn.click(); }
+      });
+    })();
+  </script>
+
+  <!-- Inline Format Bar for Edit-Modus -->
+  <style>
+    .sw-formatbar{position:fixed;z-index:10000;display:none;gap:6px;background:#111827;color:#fff;padding:6px;border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,.2)}
+    .sw-formatbar button{background:transparent;border:1px solid rgba(255,255,255,.15);color:#fff;padding:6px 8px;border-radius:8px;font-weight:700;font-size:12px;letter-spacing:.02em}
+    .sw-formatbar button:hover{background:#1f2937}
+    .sw-formatbar .is-active{background:#374151}
+    .sw-formatbar .sw-sep{width:1px;background:rgba(255,255,255,.2);margin:0 4px}
+  </style>
+  <div id="swFormatBar" class="sw-formatbar" role="toolbar" aria-label="Formatierung">
+    <button data-cmd="bold" title="Fett (Ctrl/Cmd+B)"><strong>B</strong></button>
+    <button data-cmd="italic" title="Kursiv (Ctrl/Cmd+I)"><em>I</em></button>
+    <button data-cmd="underline" title="Unterstrichen (Ctrl/Cmd+U)"><u>U</u></button>
+    <div class="sw-sep"></div>
+    <button data-block="H2" title="Überschrift H2">H2</button>
+    <button data-block="H3" title="Überschrift H3">H3</button>
+    <button data-cmd="insertUnorderedList" title="Aufzählung">• List</button>
+    <div class="sw-sep"></div>
+    <button data-cmd="removeFormat" title="Formatierung entfernen">Clear</button>
+  </div>
+  <script>
+    (function(){
+      const bar = document.getElementById('swFormatBar');
+      let editing = false;
+      const isEditing = ()=> document.body.classList.contains('sw-editing');
+      const withinMain = (node)=> !!node && (node.closest ? node.closest('main') : null);
+
+      function updateActiveStates(){
+        ['bold','italic','underline'].forEach(cmd=>{
+          const btn = bar.querySelector(`[data-cmd="${cmd}"]`);
+          if(!btn) return;
+          try{ document.queryCommandState && btn.classList.toggle('is-active', document.queryCommandState(cmd)); }catch(e){}
+        });
+      }
+
+      function placeBar(){
+        const sel = window.getSelection();
+        if(!isEditing() || !sel || sel.rangeCount===0 || sel.isCollapsed || !withinMain(sel.anchorNode)){
+          bar.style.display = 'none';
+          return;
+        }
+        const range = sel.getRangeAt(0);
+        const rect = range.getBoundingClientRect();
+        const top = Math.max(8, rect.top + window.scrollY - bar.offsetHeight - 10);
+        const left = Math.min(window.scrollX + rect.left, window.scrollX + window.innerWidth - bar.offsetWidth - 8);
+        bar.style.top = top + 'px';
+        bar.style.left = left + 'px';
+        bar.style.display = 'flex';
+        updateActiveStates();
+      }
+
+      function exec(cmd, val=null){
+        try{ document.execCommand(cmd, false, val); }catch(e){}
+        placeBar();
+      }
+
+      bar.addEventListener('mousedown', e=>{ e.preventDefault(); });
+      bar.addEventListener('click', e=>{
+        const btn = e.target.closest('button'); if(!btn) return;
+        if(btn.dataset.cmd){ exec(btn.dataset.cmd); }
+        if(btn.dataset.block){ exec('formatBlock', btn.dataset.block); }
+      });
+
+      document.addEventListener('selectionchange', ()=>{ if(isEditing()) placeBar(); });
+      document.addEventListener('keyup', ()=>{ if(isEditing()) placeBar(); });
+      document.addEventListener('mousedown', ()=>{ if(isEditing()) setTimeout(placeBar, 0); });
+      document.addEventListener('scroll', ()=>{ if(isEditing()) placeBar(); }, true);
+
+      const editBtn = document.getElementById('swToggleEdit');
+      if(editBtn){ editBtn.addEventListener('click', ()=> setTimeout(placeBar, 0)); }
+
+      document.addEventListener('keydown', (e)=>{ if(e.key==='Escape'){ bar.style.display='none'; } });
+    })();
+  </script>
+
+  <custom-navbar></custom-navbar>
+
+  <main>
+    <!-- Hero Section -->
+    <div class="max-w-screen-2xl mx-auto pt-20 px-5 sm:px-20">
+      <div class="text-left sm:p-8">
+        <div class="mb-4 flex justify-start sm:justify-center">
+          <span class="inline-flex items-center rounded-full border border-blue-200 bg-blue-50 px-3 py-1 text-xs sm:text-base font-medium text-blue-700">
+            🎓 Premium Statistikberatung für Abschlussarbeiten (R & SPSS)
+          </span>
+        </div>
+        <h1 class="text-3xl sm:text-center sm:text-6xl font-bold max-w-7xl">
+          Statistik <span class="text-blue-600">Full Service</span> für Bachelor, Master & Promotion –
+          automatisiert, präzise, diskret.
+        </h1>
+        <p class="text-xl sm:text-center sm:text-3xl font-semibold text-gray-600 mt-4 max-w-screen-2xl">
+          Von der Datenaufbereitung über R/SPSS-Analysen bis zur <em>schriftlichen Ergebnisdarstellung mit Review</em>. Ethisch sauber, prüfungsfest dokumentiert – ideal für berufstätige Studierende mit wenig Zeit.
+        </p>
+
+        <div class="flex justify-center mt-8">
+          <div class="w-full max-w-[854px]">
+            <div class="aspect-video rounded-xl border border-gray-200 bg-gray-50 flex items-center justify-center text-gray-400">Video / Case Walkthrough</div>
+          </div>
+        </div>
+
+        <div class="container mx-auto text-center py-10">
+          <p class="text-lg sm:text-4xl font-semibold text-gray-500 sm:px-24 mt-4">
+            <span class="font-semibold text-black">Statistik Writing</span> – Premium-Agentur für evidenzbasierte Auswertungen & reproduzierbare Ergebnisse.
+          </p>
+          <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4 mt-6">
+            <a href="/calendly" class="bg-blue-600 hover:bg-blue-500 text-white px-6 py-3 rounded-lg font-semibold">Erstgespräch buchen</a>
+            <a href="tel:+490000000000" class="bg-white hover:bg-gray-50 text-blue-700 px-6 py-3 rounded-lg font-semibold border border-blue-200">Direkt anrufen</a>
+          </div>
+
+          <div class="flex items-center justify-center space-x-4 mt-10">
+            <div class="flex -space-x-2 overflow-hidden">
+              <img src="http://static.photos/people/40x40/1" alt="" class="inline-block h-10 w-10 rounded-full ring-2 ring-white" />
+              <img src="http://static.photos/people/40x40/2" alt="" class="inline-block h-10 w-10 rounded-full ring-2 ring-white" />
+              <img src="http://static.photos/people/40x40/3" alt="" class="inline-block h-10 w-10 rounded-full ring-2 ring-white" />
+              <img src="http://static.photos/people/40x40/4" alt="" class="inline-block h-10 w-10 rounded-full ring-2 ring-white" />
+            </div>
+            <div>
+              <p class="font-semibold text-gray-700 text-left">Saubere Analysen. Reproduzierbare Ergebnisse.</p>
+              <p class="text-sm text-gray-500 text-left">Mit Dokumentation & Output-Reports für die Thesis.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stats Section -->
+    <section class="bg-white pb-4 sm:pb-8">
+      <div class="max-w-6xl mx-auto px-6 lg:px-8 text-center">
+        <span class="mb-6 inline-flex items-center rounded-full text-slate-700 text-xs sm:text-sm font-medium leading-none px-3 py-1 border border-slate-300 bg-white/70 backdrop-blur-[2px]">
+          Wofür Klient:innen uns buchen
+        </span>
+        <div class="grid grid-cols-2 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div class="rounded-xl border border-gray-200 bg-gray-50 p-6 shadow-sm">
+            <div class="text-3xl font-bold text-gray-900">Full Service</div>
+            <div class="mt-1 text-sm text-gray-600">Daten → Analyse → Ergebnis-Teil</div>
+          </div>
+          <div class="rounded-xl border border-gray-200 bg-gray-50 p-6 shadow-sm">
+            <div class="text-3xl font-bold text-gray-900">R & SPSS</div>
+            <div class="mt-1 text-sm text-gray-600">Reproduzierbare Workflows</div>
+          </div>
+          <div class="rounded-xl border border-gray-200 bg-gray-50 p-6 shadow-sm">
+            <div class="text-3xl font-bold text-gray-900">APA/DFG</div>
+            <div class="mt-1 text-sm text-gray-600">Tabellen & Grafiken korrekt</div>
+          </div>
+          <div class="rounded-xl border border-gray-200 bg-gray-50 p-6 shadow-sm">
+            <div class="text-3xl font-bold text-gray-900">Express</div>
+            <div class="mt-1 text-sm text-gray-600">beschränkt verfügbar</div>
+          </div>
+        </div>
+        <p class="mt-6 text-xs text-gray-500">Hinweis: Wir arbeiten ethik-konform. Kein Ghostwriting kompletter Arbeiten.</p>
+      </div>
+    </section>
+
+    <!-- Geschenk/Benefit Section -->
+    <section class="flex flex-col items-center justify-center p-6 bg-white">
+      <h2 class="text-2xl sm:text-5xl font-bold text-gray-900 mb-6">Unser Versprechen 🎯</h2>
+      <div class="max-w-5xl bg-gray-50 shadow-sm border border-gray-200 rounded-lg p-6 w-full flex flex-col sm:flex-row items-center sm:items-start">
+        <div class="relative w-full sm:w-1/2 h-64 sm:h-auto mb-4 sm:mb-0">
+          <img src="http://static.photos/technology/400x300/1" alt="Workflow" class="rounded-lg object-cover" />
+        </div>
+        <div class="sm:pl-6 w-full sm:w-1/2">
+          <p class="text-gray-700 mb-2">Planbar. Nachweisbar.</p>
+          <h3 class="text-2xl sm:text-2xl lg:text-4xl font-semibold text-gray-900 mb-4">Dokumentierte Analysen & prüfungsfeste Ergebnisberichte</h3>
+          <p class="text-gray-700 text-sm sm:text-base">Sie erhalten saubere Datensätze, Skripte/Do-Files, Output (Tabellen/Grafiken) und einen formal sauberen Ergebnis-Teil mit Review – damit Ihr Vorgehen transparent, reproduzierbar und verteidigungsfähig ist.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quote Section -->
+    <section class="bg-white px-6 py-12 sm:py-16 lg:px-8">
+      <div class="mx-auto max-w-5xl">
+        <figure>
+          <blockquote class="text-xl font-semibold leading-8 tracking-tight text-gray-900 sm:text-5xl">
+            <p>„Gute Forschung ist reproduzierbar. Unsere Auswertungen sind es auch – mit klaren Skripten, sauberer Dokumentation und belastbaren Ergebnissen."</p>
+          </blockquote>
+          <figcaption class="mt-10 flex items-center gap-x-6">
+            <img src="http://static.photos/people/48x48/5" alt="" class="rounded-full bg-gray-50 w-12 h-12" />
+            <div class="text-sm leading-6">
+              <div class="font-semibold text-base sm:text-lg text-gray-900">Team Statistik Writing</div>
+              <div class="mt-0.5 text-gray-600 sm:text-lg">R/SPSS – cross‑disziplinär, expressfähig</div>
+            </div>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Problem-Sektion -->
+    <div class="mx-auto grid max-w-7xl grid-cols-1 gap-8 px-4 pb-12 sm:pt-24">
+      <h2 class="col-span-1 text-3xl sm:text-7xl font-bold max-w-4xl">Was bremst Ihre Abschlussarbeit?</h2>
+      <div class="col-span-1 md:col-span-8 font-semibold max-w-6xl">
+        <p class="text-xl sm:text-xl text-neutral-500 md:text-4xl">Fünf typische Hürden, die wir täglich lösen – strukturiert, zügig, dokumentiert.</p>
+      </div>
+    </div>
+    <div class="relative">
+      <div class="max-w-screen-2xl mx-auto px-5 sm:px-6 pb-24 relative z-30">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div class="relative text-white p-8 rounded-xl flex flex-col justify-end h-[320px] cursor-pointer overflow-hidden">
+            <img src="http://static.photos/education/640x360/1" alt="Problem 1" class="rounded-xl absolute inset-0 w-full h-full object-cover" />
+            <div class="absolute inset-0 bg-red-100 opacity-95"></div>
+            <div class="absolute top-4 right-4 z-10">
+              <button class="bg-red-950 text-white font-bold text-2xl rounded-full w-8 h-8 flex items-center justify-center">+</button>
+            </div>
+            <div class="mt-auto z-10 text-red-950">
+              <h3 class="text-3xl sm:text-5xl font-bold mb-4">1. Unklare Daten & Messinstrumente</h3>
+              <p class="text-xl">Wir prüfen Skalen, Kodierung, Missing Values und bereiten Ihre Daten analysefähig auf.</p>
+            </div>
+          </div>
+          <div class="relative text-white p-8 rounded-xl flex flex-col justify-end h-[320px] cursor-pointer overflow-hidden">
+            <img src="http://static.photos/education/640x360/2" alt="Problem 2" class="rounded-xl absolute inset-0 w-full h-full object-cover" />
+            <div class="absolute inset-0 bg-blue-100 opacity-95"></div>
+            <div class="absolute top-4 right-4 z-10">
+              <button class="bg-blue-950 text-white font-bold text-2xl rounded-full w-8 h-8 flex items-center justify-center">+</button>
+            </div>
+            <div class="mt-auto z-10 text-blue-950">
+              <h3 class="text-3xl sm:text-5xl font-bold mb-4">2. Methoden unsicher?</h3>
+              <p class="text-xl">Von t‑Test/ANOVA bis Regression/Logit/FA/SEM – wir wählen und begründen die passenden Verfahren.</p>
+            </div>
+          </div>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-6">
+          <div class="relative text-white p-8 rounded-xl flex flex-col justify-end h-[320px] cursor-pointer overflow-hidden">
+            <img src="http://static.photos/education/640x360/3" alt="Problem 3" class="rounded-xl absolute inset-0 w-full h-full object-cover" />
+            <div class="absolute inset-0 bg-yellow-100 opacity-95"></div>
+            <div class="absolute top-4 right-4 z-10">
+              <button class="bg-yellow-950 text-white font-bold text-2xl rounded-full w-8 h-8 flex items-center justify-center">+</button>
+            </div>
+            <div class="mt-auto z-10 text-yellow-950">
+              <h3 class="text-3xl sm:text-4xl font-bold mb-4">3. Interpretation & Grafiken</h3>
+              <p class="text-lg">APA-konforme Tabellen, klare Visualisierungen und präzise Ergebnis-Interpretation.</p>
+            </div>
+          </div>
+          <div class="relative text-white p-8 rounded-xl flex flex-col justify-end h-[320px] cursor-pointer overflow-hidden">
+            <img src="http://static.photos/education/640x360/4" alt="Problem 4" class="rounded-xl absolute inset-0 w-full h-full object-cover" />
+            <div class="absolute inset-0 bg-green-100 opacity-95"></div>
+            <div class="absolute top-4 right-4 z-10">
+              <button class="bg-green-950 text-white font-bold text-2xl rounded-full w-8 h-8 flex items-center justify-center">+</button>
+            </div>
+            <div class="mt-auto z-10 text-green-950">
+              <h3 class="text-3xl sm:text-4xl font-bold mb-4">4. Reproduzierbarkeit</h3>
+              <p class="text-lg">R‑Skripte oder SPSS-Syntax samt Log/Output für transparente Nachvollziehbarkeit.</p>
+            </div>
+          </div>
+          <div class="relative text-white p-8 rounded-xl flex flex-col justify-end h-[320px] cursor-pointer overflow-hidden">
+            <img src="http://static.photos/education/640x360/5" alt="Problem 5" class="rounded-xl absolute inset-0 w-full h-full object-cover" />
+            <div class="absolute inset-0 bg-purple-100 opacity-95"></div>
+            <div class="absolute top-4 right-4 z-10">
+              <button class="bg-purple-950 text-white font-bold text-2xl rounded-full w-8 h-8 flex items-center justify-center">+</button>
+            </div>
+            <div class="mt-auto z-10 text-purple-950">
+              <h3 class="text-3xl sm:text-4xl font-bold mb-4">5. Zeitdruck</h3>
+              <p class="text-lg">Straffer Prozess, Slots für Express-Projekte – ohne Qualitätseinbußen.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Testimonials Section -->
+    <section class="py-20 bg-gray-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold text-center mb-12">Stimmen von Klient:innen</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <article class="bg-white p-6 rounded-lg shadow-md">
+            <div class="flex items-center mb-4">
+              <img src="http://static.photos/people/80x80/1" alt="Lisa M." class="w-12 h-12 rounded-full mr-4" />
+              <div>
+                <h3 class="font-semibold">Lisa M.</h3>
+                <p class="text-gray-600 text-sm">M.Sc. Psychologie (berufsbegleitend)</p>
+              </div>
+            </div>
+            <div class="space-y-3">
+              <div>
+                <h4 class="font-semibold text-gray-900">Problem</h4>
+                <p class="text-gray-700">Unsaubere Datensätze (Likert-Skalen, Missing Values), unsicher bei Testwahl.</p>
+              </div>
+              <div>
+                <h4 class="font-semibold text-gray-900">Ziel</h4>
+                <p class="text-gray-700">APA-konforme Tabellen und ein prüfungsfester Ergebnis-Teil inkl. Begründung der Methoden.</p>
+              </div>
+              <div>
+                <h4 class="font-semibold text-gray-900">Ergebnis</h4>
+                <p class="text-gray-700">Datenbereinigung, R-Skripte, fertig gesetzte Tabellen/Grafiken und ein klarer Ergebnis-Text mit Review – Verteidigung bestanden.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="bg-white p-6 rounded-lg shadow-md">
+            <div class="flex items-center mb-4">
+              <img src="http://static.photos/people/80x80/2" alt="Max T." class="w-12 h-12 rounded-full mr-4" />
+              <div>
+                <h3 class="font-semibold">Max T.</h3>
+                <p class="text-gray-600 text-sm">MBA (Teilzeit)</p>
+              </div>
+            </div>
+            <div class="space-y-3">
+              <div>
+                <h4 class="font-semibold text-gray-900">Problem</h4>
+                <p class="text-gray-700">Zeitdruck, heterogene Datenquellen, Unsicherheit bei Regressionsmodellen.</p>
+              </div>
+              <div>
+                <h4 class="font-semibold text-gray-900">Ziel</h4>
+                <p class="text-gray-700">Schneller, reproduzierbarer Workflow mit klaren Management-Insights.</p>
+              </div>
+              <div>
+                <h4 class="font-semibold text-gray-900">Ergebnis</h4>
+                <p class="text-gray-700">SPSS-Syntax + Report, Modellvergleich (AIC/R²), Executive Summary; Abgabe rechtzeitig, Note über Ziel.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="bg-white p-6 rounded-lg shadow-md">
+            <div class="flex items-center mb-4">
+              <img src="http://static.photos/people/80x80/3" alt="Sarah K." class="w-12 h-12 rounded-full mr-4" />
+              <div>
+                <h3 class="font-semibold">Sarah K.</h3>
+                <p class="text-gray-600 text-sm">Dr. med. (Promotion)</p>
+              </div>
+            </div>
+            <div class="space-y-3">
+              <div>
+                <h4 class="font-semibold text-gray-900">Problem</h4>
+                <p class="text-gray-700">klinische Daten mit Ausreißern, fehlende Visualisierungen für Gutachter:innen.</p>
+              </div>
+              <div>
+                <h4 class="font-semibold text-gray-900">Ziel</h4>
+                <p class="text-gray-700">Saubere Auswertung, robuste Grafiken und ein schlüssiger Ergebnis-Teil.</p>
+              </div>
+              <div>
+                <h4 class="font-semibold text-gray-900">Ergebnis</h4>
+                <p class="text-gray-700">R-Pipeline (tidyverse), diagnostische Checks, Publikations-Grafiken, Rezension des Ergebnis-Kapitels.</p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <div class="max-w-screen-2xl mx-auto pb-24 px-5 sm:px-6">
+      <h2 class="text-4xl sm:text-6xl font-bold tracking-tight sm:text-center mb-8">Was erhalten Sie von Statistik Writing?</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="relative text-white p-6 rounded-xl flex flex-col justify-between h-[500px] sm:h-[400px] lg:h-[500px]">
+          <img src="http://static.photos/education/640x360/6" alt="" class="rounded-xl absolute inset-0 w-full h-full object-cover" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80 rounded-xl"></div>
+          <div class="mt-auto z-10">
+            <h3 class="text-4xl font-bold mb-4">Datenaufbereitung</h3>
+            <p class="text-lg">Kodierung, Skalenprüfung, Ausreißer/Missings, Assumptions-Checks – dokumentiert.</p>
+          </div>
+        </div>
+        <div class="relative text-white p-6 rounded-xl flex flex-col justify-between h-[500px] sm:h-[400px] lg:h-[500px]">
+          <img src="http://static.photos/education/640x360/7" alt="" class="rounded-xl absolute inset-0 w-full h-full object-cover" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80 rounded-xl"></div>
+          <div class="mt-auto z-10">
+            <h3 class="text-4xl font-bold mb-4">Analyse in R/SPSS</h3>
+            <p class="text-lg">Deskriptiv, t/ANOVA, Korrelation/Regression, Logit, Faktoren/Cluster, ggf. SEM.</p>
+          </div>
+        </div>
+        <div class="relative text-white p-6 rounded-xl flex flex-col justify-between h-[500px] sm:h-[400px] lg:h-[500px]">
+          <img src="http://static.photos/education/640x360/8" alt="" class="rounded-xl absolute inset-0 w-full h-full object-cover" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80 rounded-xl"></div>
+          <div class="mt-auto z-10">
+            <h3 class="text-4xl font-bold mb-4">Ergebnis-Teil & Review</h3>
+            <p class="text-lg">Schriftlicher Ergebnis-Teil (auf Basis Ihrer Daten) inkl. Interpretation, Tabellen/Grafiken und fachlichem Review. Kein Ghostwriting kompletter Arbeiten.</p>
+          </div>
+        </div>
+        <div class="relative text-white p-6 rounded-xl flex flex-col justify-between h-[500px] sm:h-[400px] lg:h-[500px]">
+          <img src="http://static.photos/education/640x360/9" alt="" class="rounded-xl absolute inset-0 w-full h-full object-cover" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80 rounded-xl"></div>
+          <div class="mt-auto z-10">
+            <h3 class="text-4xl font-bold mb-4">Dokumentation</h3>
+            <p class="text-lg">Skripte/Syntax, Output, Methodik-Notizen – verteidigungsfähig und revisionssicher.</p>
+          </div>
+        </div>
+        <div class="relative text-white p-6 rounded-xl flex flex-col justify-between h-[500px] sm:h-[400px] lg:h-[500px]">
+          <img src="http://static.photos/education/640x360/10" alt="" class="rounded-xl absolute inset-0 w-full h-full object-cover" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80 rounded-xl"></div>
+          <div class="mt-auto z-10">
+            <h3 class="text-4xl font-bold mb-4">Fachbereiche</h3>
+            <p class="text-lg">Psychologie, Medizin, BWL, Soziologie u. a. – branchen- und hochschulübergreifend.</p>
+          </div>
+        </div>
+        <div class="relative text-white p-6 rounded-xl flex flex-col justify-between h-[500px] sm:h-[400px] lg:h-[500px]">
+          <img src="http://static.photos/education/640x360/11" alt="" class="rounded-xl absolute inset-0 w-full h-full object-cover" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80 rounded-xl"></div>
+          <div class="mt-auto z-10">
+            <h3 class="text-4xl font-bold mb-4">Diskretion & Compliance</h3>
+            <p class="text-lg">Vertraulichkeit, NDA auf Wunsch, ethik-konform. Wir beraten – Sie bleiben Autor:in.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Prozess Section -->
+    <div class="bg-white px-6 pt-4 sm:pt-32 lg:px-8">
+      <div class="mx-auto max-w-screen-xl sm:text-center">
+        <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-6xl">Ihr Weg zum Ergebnis – strukturiert in 3 Phasen</h2>
+      </div>
+    </div>
+    <div class="bg-white pb-24 sm:pb-32">
+      <div class="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8">
+        <div class="mt-10 grid grid-cols-1 gap-4 sm:mt-16 lg:grid-cols-6 lg:grid-rows-2">
+          <div class="relative lg:col-span-3">
+            <div class="absolute inset-px rounded-lg bg-white max-lg:rounded-t-[2rem] lg:rounded-tl-[2rem]"></div>
+            <div class="relative flex h-full flex-col overflow-hidden rounded-[calc(theme(borderRadius.lg)+1px)] max-lg:rounded-t-[calc(2rem+1px)] lg:rounded-tl-[calc(2rem+1px)]">
+              <div class="relative w-full h-80">
+                <img src="http://static.photos/education/800x400/1" alt="Phase 1" class="object-cover object-left rounded-t-lg absolute inset-0 w-full h-full" />
+              </div>
+              <div class="p-10 pt-4">
+                <h3 class="mt-2 text-3xl font-semibold tracking-tight text-gray-950">Phase 1: Erstgespräch & Planung</h3>
+                <p class="mt-2 max-w-lg text-sm/6 lg:text-lg text-gray-600">
+                  Wir besprechen Ihre Forschungsfragen, Datenstruktur, methodische Anforderungen und Zeitrahmen. Sie erhalten ein transparentes Angebot mit Meilensteinen und Deliverables.
+                </p>
+              </div>
+            </div>
+            <div class="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5 max-lg:rounded-t-[2rem] lg:rounded-tl-[2rem]"></div>
+          </div>
+
+          <div class="relative lg:col-span-3">
+            <div class="absolute inset-px rounded-lg bg-white lg:rounded-tr-[2rem]"></div>
+            <div class="relative flex h-full flex-col overflow-hidden rounded-[calc(theme(borderRadius.lg)+1px)] lg:rounded-tr-[calc(2rem+1px)]">
+              <div class="relative w-full h-80">
+                <img src="http://static.photos/education/800x400/2" alt="Phase 2" class="object-cover object-left lg:object-right rounded-t-lg absolute inset-0 w-full h-full" />
+              </div>
+              <div class="p-10 pt-4">
+                <h3 class="mt-2 text-3xl font-semibold tracking-tight text-gray-950">Phase 2: Datenanalyse & Auswertung</h3>
+                <p class="mt-2 max-w-lg text-sm/6 lg:text-lg text-gray-600">
+                  Wir bereinigen und analysieren Ihre Daten mit R oder SPSS, erstellen Tabellen/Grafiken und dokumentieren jeden Schritt reproduzierbar.
+                </p>
+              </div>
+            </div>
+            <div class="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5 lg:rounded-tr-[2rem]"></div>
+          </div>
+
+          <div class="relative lg:col-span-6">
+            <div class="absolute inset-px rounded-lg bg-white max-lg:rounded-b-[2rem] lg:rounded-b-[2rem]"></div>
+            <div class="relative flex h-full flex-col overflow-hidden rounded-[calc(theme(borderRadius.lg)+1px)] max-lg:rounded-b-[calc(2rem+1px)] lg:rounded-b-[calc(2rem+1px)]">
+              <div class="relative w-full h-80">
+                <img src="http://static.photos/education/800x400/3" alt="Phase 3" class="object-cover object-center rounded-t-lg absolute inset-0 w-full h-full" />
+              </div>
+              <div class="p-10 pt-4">
+                <h3 class="mt-2 text-3xl font-semibold tracking-tight text-gray-950">Phase 3: Ergebnis-Teil & Review-Runde</h3>
+                <p class="mt-2 max-w-lg text-sm/6 lg:text-lg text-gray-600">
+                  Sie erhalten einen schriftlich ausformulierten Ergebnis-Teil mit Interpretation, APA-konformen Tabellen/Grafiken sowie einer Review-Runde für Ihre Rückfragen. Alle Skripte und Outputs werden übergeben.
+                </p>
+              </div>
+            </div>
+            <div class="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5 max-lg:rounded-b-[2rem] lg:rounded-b-[2rem]"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FAQ Section -->
+    <faq-section></faq-section>
+
+    <!-- Final CTA Section -->
+    <div class="bg-white">
+      <div class="w-full pt-12">
+        <div class="relative isolate overflow-hidden bg-blue-50 px-5 sm:px-20 py-24 text-center">
+          <div class="relative mt-10 mb-10 flex justify-center space-x-[-20px]">
+            <div class="w-24 h-24 bg-yellow-200 rounded-full flex items-center justify-center text-4xl leading-none">📊</div>
+            <div class="w-24 h-24 bg-red-200 rounded-full flex items-center justify-center text-4xl leading-none">📈</div>
+            <div class="w-24 h-24 bg-blue-200 rounded-full flex items-center justify-center text-4xl leading-none">🎓</div>
+            <div class="w-24 h-24 bg-green-200 rounded-full flex items-center justify-center text-4xl leading-none">✅</div>
+          </div>
+          <h3 class="mt-4 mx-auto max-w-3xl text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
+            Ihre Thesis verdient präzise Statistik.
+          </h3>
+          <p class="mx-auto mt-6 max-w-xl text-lg leading-8 text-gray-900">
+            Buchen Sie jetzt ein unverbindliches Erstgespräch und starten Sie mit klaren Analysen in Ihre Abschlussarbeit.
+          </p>
+          <div class="mt-10 flex items-center justify-center gap-x-6">
+            <a href="/calendly" class="rounded-full bg-blue-600 px-7 py-4 text-lg font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
+              Erstgespräch buchen
+            </a>
+            <a href="tel:+490000000000" class="text-lg font-semibold leading-6 text-gray-900">
+              Direkt anrufen <span aria-hidden="true">→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div class="col-span-1 md:col-span-2">
+          <h3 class="text-2xl font-bold mb-4">Statistik Writing</h3>
+          <p class="text-gray-400 mb-4">
+            Premium-Statistikberatung für Abschlussarbeiten. Full Service von Datenaufbereitung bis zum fertigen Ergebnis-Teil.
+          </p>
+          <p class="text-gray-400 text-sm">
+            Ethik-konform • Reproduzierbar • Diskret
+          </p>
+        </div>
+        
+        <div>
+          <h4 class="text-lg font-semibold mb-4">Services</h4>
+          <ul class="space-y-2 text-gray-400">
+            <li><a href="#" class="hover:text-white">Datenaufbereitung</a></li>
+            <li><a href="#" class="hover:text-white">R/SPSS Analysen</a></li>
+            <li><a href="#" class="hover:text-white">Ergebnis-Teil</a></li>
+            <li><a href="#" class="hover:text-white">Express-Service</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="text-lg font-semibold mb-4">Kontakt</h4>
+          <ul class="space-y-2 text-gray-400">
+            <li><a href="/calendly" class="hover:text-white">Erstgespräch buchen</a></li>
+            <li><a href="tel:+490000000000" class="hover:text-white">+49 (0) 000 000000</a></li>
+            <li><a href="/cdn-cgi/l/email-protection#6f060109002f1c1b0e1b061c1b060442181d061b060108410b0a" class="hover:text-white"><span class="__cf_email__" data-cfemail="066f68606946757267726f75726f6d2b71746f726f6861286263">[email&#160;protected]</span></a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+        <p class="text-gray-400 text-sm">
+          © 2025 Statistik Writing. Alle Rechte vorbehalten.
+        </p>
+        <div class="flex space-x-6 mt-4 md:mt-0">
+          <a href="#" class="text-gray-400 hover:text-white text-sm">Impressum</a>
+          <a href="#" class="text-gray-400 hover:text-white text-sm">Datenschutz</a>
+          <a href="#" class="text-gray-400 hover:text-white text-sm">AGB</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <s
