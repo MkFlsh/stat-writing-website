@@ -26,138 +26,6 @@
     </script>
 </head>
 <body class="bg-white">
-  
-  <!-- Floating Edit UI -->
-  <style>
-    .sw-edit-ui{position:fixed;right:16px;bottom:16px;z-index:9999;display:flex;gap:8px}
-    .sw-edit-ui button{background:#1d4ed8;color:#fff;border:none;border-radius:9999px;padding:10px 14px;font-weight:600;box-shadow:0 4px 12px rgba(0,0,0,.15)}
-    .sw-edit-ui button:hover{background:#2563eb}
-    .sw-editing [contenteditable="true"]{outline:2px dashed #60a5fa; outline-offset:4px;}
-  </style>
-  <div class="sw-edit-ui">
-    <button id="swToggleEdit" aria-pressed="false">✏️ Edit-Modus</button>
-    <button id="swSaveHtml">⬇️ Speichern</button>
-  </div>
-  <script>
-    (function(){
-      const toggleBtn = document.getElementById('swToggleEdit');
-      const saveBtn = document.getElementById('swSaveHtml');
-      let editing = false;
-      const editableSelectors = 'main h1, main h2, main h3, main p, main li, main span, main a, main button, main blockquote, main figcaption';
-
-      function setEditable(on){
-        document.body.classList.toggle('sw-editing', on);
-        document.querySelectorAll(editableSelectors).forEach(el=>{
-          if(el.tagName === 'A'){
-            el.setAttribute('data-original-href', el.getAttribute('href'));
-          }
-          el.contentEditable = on ? 'true' : 'false';
-        });
-        try {
-          if(typeof window.rebuildHandles === 'function'){ window.rebuildHandles(); }
-        } catch(e){}
-      }
-
-      window.__swSetEditable = setEditable;
-
-      toggleBtn.addEventListener('click', ()=>{
-        editing = !editing;
-        toggleBtn.setAttribute('aria-pressed', String(editing));
-        toggleBtn.textContent = editing ? '✅ Edit-Modus aktiv' : '✏️ Edit-Modus';
-        setEditable(editing);
-      });
-
-      saveBtn.addEventListener('click', ()=>{
-        const wasEditing = editing; if(wasEditing){ toggleBtn.click(); }
-        const docString = '<!DOCTYPE html>' + document.documentElement.outerHTML;
-        const blob = new Blob([docString], {type: 'text/html;charset=utf-8'});
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = 'statistik-writing.html';
-        document.body.appendChild(a);
-        a.click();
-        a.remove();
-        URL.revokeObjectURL(url);
-        if(wasEditing){ toggleBtn.click(); }
-      });
-    })();
-  </script>
-
-  <!-- Inline Format Bar for Edit-Modus -->
-  <style>
-    .sw-formatbar{position:fixed;z-index:10000;display:none;gap:6px;background:#111827;color:#fff;padding:6px;border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,.2)}
-    .sw-formatbar button{background:transparent;border:1px solid rgba(255,255,255,.15);color:#fff;padding:6px 8px;border-radius:8px;font-weight:700;font-size:12px;letter-spacing:.02em}
-    .sw-formatbar button:hover{background:#1f2937}
-    .sw-formatbar .is-active{background:#374151}
-    .sw-formatbar .sw-sep{width:1px;background:rgba(255,255,255,.2);margin:0 4px}
-  </style>
-  <div id="swFormatBar" class="sw-formatbar" role="toolbar" aria-label="Formatierung">
-    <button data-cmd="bold" title="Fett (Ctrl/Cmd+B)"><strong>B</strong></button>
-    <button data-cmd="italic" title="Kursiv (Ctrl/Cmd+I)"><em>I</em></button>
-    <button data-cmd="underline" title="Unterstrichen (Ctrl/Cmd+U)"><u>U</u></button>
-    <div class="sw-sep"></div>
-    <button data-block="H2" title="Überschrift H2">H2</button>
-    <button data-block="H3" title="Überschrift H3">H3</button>
-    <button data-cmd="insertUnorderedList" title="Aufzählung">• List</button>
-    <div class="sw-sep"></div>
-    <button data-cmd="removeFormat" title="Formatierung entfernen">Clear</button>
-  </div>
-  <script>
-    (function(){
-      const bar = document.getElementById('swFormatBar');
-      let editing = false;
-      const isEditing = ()=> document.body.classList.contains('sw-editing');
-      const withinMain = (node)=> !!node && (node.closest ? node.closest('main') : null);
-
-      function updateActiveStates(){
-        ['bold','italic','underline'].forEach(cmd=>{
-          const btn = bar.querySelector(`[data-cmd="${cmd}"]`);
-          if(!btn) return;
-          try{ document.queryCommandState && btn.classList.toggle('is-active', document.queryCommandState(cmd)); }catch(e){}
-        });
-      }
-
-      function placeBar(){
-        const sel = window.getSelection();
-        if(!isEditing() || !sel || sel.rangeCount===0 || sel.isCollapsed || !withinMain(sel.anchorNode)){
-          bar.style.display = 'none';
-          return;
-        }
-        const range = sel.getRangeAt(0);
-        const rect = range.getBoundingClientRect();
-        const top = Math.max(8, rect.top + window.scrollY - bar.offsetHeight - 10);
-        const left = Math.min(window.scrollX + rect.left, window.scrollX + window.innerWidth - bar.offsetWidth - 8);
-        bar.style.top = top + 'px';
-        bar.style.left = left + 'px';
-        bar.style.display = 'flex';
-        updateActiveStates();
-      }
-
-      function exec(cmd, val=null){
-        try{ document.execCommand(cmd, false, val); }catch(e){}
-        placeBar();
-      }
-
-      bar.addEventListener('mousedown', e=>{ e.preventDefault(); });
-      bar.addEventListener('click', e=>{
-        const btn = e.target.closest('button'); if(!btn) return;
-        if(btn.dataset.cmd){ exec(btn.dataset.cmd); }
-        if(btn.dataset.block){ exec('formatBlock', btn.dataset.block); }
-      });
-
-      document.addEventListener('selectionchange', ()=>{ if(isEditing()) placeBar(); });
-      document.addEventListener('keyup', ()=>{ if(isEditing()) placeBar(); });
-      document.addEventListener('mousedown', ()=>{ if(isEditing()) setTimeout(placeBar, 0); });
-      document.addEventListener('scroll', ()=>{ if(isEditing()) placeBar(); }, true);
-
-      const editBtn = document.getElementById('swToggleEdit');
-      if(editBtn){ editBtn.addEventListener('click', ()=> setTimeout(placeBar, 0)); }
-
-      document.addEventListener('keydown', (e)=>{ if(e.key==='Escape'){ bar.style.display='none'; } });
-    })();
-  </script>
-
   <custom-navbar></custom-navbar>
 
   <main>
@@ -174,7 +42,7 @@
           automatisiert, präzise, diskret.
         </h1>
         <p class="text-xl sm:text-center sm:text-3xl font-semibold text-gray-600 mt-4 max-w-screen-2xl">
-          Von der Datenaufbereitung über R/SPSS-Analysen bis zur <em>schriftlichen Ergebnisdarstellung mit Review</em>. Ethisch sauber, prüfungsfest dokumentiert – ideal für berufstätige Studierende mit wenig Zeit.
+          Von der Datenaufbereitung über R/SPSS-Analysen bis zur <em>schriftlichen Ergebnisdarstellung mit Review</em>. Ethisch sauber, prüfungsfest dokumentiert – für berufsbegleitende Studierende, Promovierende & Mediziner:innen.
         </p>
 
         <div class="flex justify-center mt-8">
@@ -188,7 +56,7 @@
             <span class="font-semibold text-black">Statistik Writing</span> – Premium-Agentur für evidenzbasierte Auswertungen & reproduzierbare Ergebnisse.
           </p>
           <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4 mt-6">
-            <a href="/calendly" class="bg-blue-600 hover:bg-blue-500 text-white px-6 py-3 rounded-lg font-semibold">Erstgespräch buchen</a>
+            <a href="https://calendly.com/statistik-writing/kostenloses-erstgesprach/" class="bg-blue-600 hover:bg-blue-500 text-white px-6 py-3 rounded-lg font-semibold">Erstgespräch buchen</a>
             <a href="tel:+490000000000" class="bg-white hover:bg-gray-50 text-blue-700 px-6 py-3 rounded-lg font-semibold border border-blue-200">Direkt anrufen</a>
           </div>
 
@@ -555,7 +423,7 @@
             Buchen Sie jetzt ein unverbindliches Erstgespräch und starten Sie mit klaren Analysen in Ihre Abschlussarbeit.
           </p>
           <div class="mt-10 flex items-center justify-center gap-x-6">
-            <a href="/calendly" class="rounded-full bg-blue-600 px-7 py-4 text-lg font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
+            <a href="https://calendly.com/statistik-writing/kostenloses-erstgesprach/" class="rounded-full bg-blue-600 px-7 py-4 text-lg font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
               Erstgespräch buchen
             </a>
             <a href="tel:+490000000000" class="text-lg font-semibold leading-6 text-gray-900">
@@ -595,7 +463,7 @@
         <div>
           <h4 class="text-lg font-semibold mb-4">Kontakt</h4>
           <ul class="space-y-2 text-gray-400">
-            <li><a href="/calendly" class="hover:text-white">Erstgespräch buchen</a></li>
+            <li><a href="https://calendly.com/statistik-writing/kostenloses-erstgesprach/" class="hover:text-white">Erstgespräch buchen</a></li>
             <li><a href="tel:+490000000000" class="hover:text-white">+49 (0) 000 000000</a></li>
             <li><a href="/cdn-cgi/l/email-protection#6f060109002f1c1b0e1b061c1b060442181d061b060108410b0a" class="hover:text-white"><span class="__cf_email__" data-cfemail="066f68606946757267726f75726f6d2b71746f726f6861286263">[email&#160;protected]</span></a></li>
           </ul>
