@@ -5,24 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>Statistik Writing – Full Service für Ihre Forschung</title>
   <meta name="description" content="Premium Statistik-Coaching für Promotion & Masterarbeit. Data Science Methoden, R/SPSS/Python Support und Fachlektorat." />
-  
-  <!-- ============================================================ -->
-  <!-- 1. COOKIEBOT (Deine echte ID ist aktiv)                      -->
-  <!-- ============================================================ -->
-  <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="ec39aa1a-72bd-4ddf-a08f-c15d9abe31d9" data-blockingmode="auto" type="text/javascript"></script>
 
-  <!-- Tailwind CSS -->
+  <!-- ============================================================ -->
+  <!-- 1. DESIGN & FONTS (Lädt immer sofort)                        -->
+  <!-- ============================================================ -->
   <script src="https://cdn.tailwindcss.com"></script>
-  
-  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&display=swap" rel="stylesheet">
 
   <!-- ============================================================ -->
-  <!-- 2. MARKETING PIXEL (Gesteuert durch Cookiebot)               -->
+  <!-- 2. COOKIEBOT (Rechtssicherheit)                              -->
+  <!-- ============================================================ -->
+  <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="ec39aa1a-72bd-4ddf-a08f-c15d9abe31d9" data-blockingmode="auto" type="text/javascript"></script>
+
+  <!-- ============================================================ -->
+  <!-- 3. MARKETING PIXEL (Warten auf Cookiebot-Zustimmung)         -->
   <!-- ============================================================ -->
 
-  <!-- GOOGLE KOMBI-TAG (Ads + Analytics) -->
+  <!-- GOOGLE KOMBI-TAG (Ads + Analytics 4) -->
   <script type="text/plain" data-cookieconsent="marketing" src="https://www.googletagmanager.com/gtag/js?id=AW-17782287671"></script>
   <script type="text/plain" data-cookieconsent="marketing">
     window.dataLayer = window.dataLayer || [];
@@ -47,11 +47,12 @@
     s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
     
-    // Meta ID
+    // Meta Pixel ID
     fbq('init', '1325469602014644'); 
     fbq('track', 'PageView');
   </script>
 
+  <!-- TAILWIND KONFIGURATION -->
   <script>
     tailwind.config = {
       theme: {
@@ -331,7 +332,7 @@
           </div>
         </div>
         
-        <!-- CTA 4 (Zentriert) -->
+        <!-- CTA (Zentriert) -->
         <div class="mt-10 text-center">
            <a href="https://calendly.com/statistik-writing/kostenloses-erstgesprach/" class="inline-block bg-brand-orange text-white text-lg px-8 py-3 rounded-lg font-bold shadow-lg hover:bg-orange-600 hover:-translate-y-0.5 transition-all w-full md:w-auto">
              Jetzt kostenloses Erstgespräch anfragen
@@ -349,7 +350,7 @@
             <img src="./images/statistik-coaching-team-berlin.jpg" alt="Students Working" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105">
             <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/70 to-transparent p-6 md:p-8 flex flex-col justify-end">
               <blockquote class="text-white text-base md:text-lg font-medium leading-relaxed italic">
-                „90% aller Studierenden kämpfen mit Statistik, nicht weil sie unfähig sind, sondern weil die Lehre an Hochschulen oft rein theoretisch und nicht praxisbezogen genug für Abschlussarbeiten ist. Sie verlieren Zeit durch Prokrastination und keinen genauen Plan.“
+                „90% aller Studierenden kämpfen mit Statistik, nicht weil sie unfähig sind, sondern weil die Lehre an Hochschulen oft rein theoretisch ist. Sie verlieren Zeit durch Prokrastination und keinen genauen Plan.“
               </blockquote>
               <div class="mt-6 flex items-center gap-4">
                 <div class="h-12 w-12 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold text-xl shrink-0">MF</div>
@@ -387,7 +388,6 @@
                 <div><h4 class="font-bold text-slate-900 text-base md:text-lg">Suche nach Teillösungen</h4><p class="text-slate-600 mt-1 text-sm">Nur die Auswertung buchen, aber die Interpretation nicht verstehen. Das fliegt spätestens in der Verteidigung auf.</p></div>
               </div>
             </div>
-            <!-- CTA (Zentriert) -->
             <div class="mt-10 text-center">
                <a href="https://calendly.com/statistik-writing/kostenloses-erstgesprach/" class="inline-block bg-brand-orange text-white text-lg px-8 py-3 rounded-lg font-bold shadow-lg hover:bg-orange-600 hover:-translate-y-0.5 transition-all w-full md:w-auto">
                  Jetzt kostenloses Erstgespräch anfragen
@@ -446,7 +446,7 @@
       </div>
     </section>
 
-    <!-- 6. TESTIMONIALS (Moved UP here) -->
+    <!-- 6. TESTIMONIALS -->
     <section id="testimonials" class="py-16 md:py-24 bg-slate-50 border-t border-slate-200">
       <div class="container mx-auto px-4">
         <div class="text-center max-w-3xl mx-auto mb-12 md:mb-16">
@@ -740,7 +740,7 @@
           <div class="lg:col-span-7 bg-white p-6 md:p-8 rounded-xl shadow-lg border border-slate-100">
             <h3 class="text-xl md:text-2xl font-bold text-slate-900 mb-2">Kontaktformular</h3>
             <p class="text-slate-500 text-sm mb-8">Kostenlos anfragen</p>
-            <!-- FORM UPDATE: mailto fallback setup, with updated fields -->
+            <!-- FORM UPDATE: Fallback UI (Separate action, no Calendly link here) -->
             <form class="space-y-4" action="mailto:kontakt@statistik-writing.com" method="POST" enctype="text/plain">
               <div class="grid md:grid-cols-2 gap-4">
                 <div>
@@ -848,6 +848,7 @@
             </div>
             <div class="flex gap-4">
                <div class="w-12 h-12 bg-white border border-slate-200 rounded-lg flex items-center justify-center text-slate-700 shrink-0">📞</div>
+              <!-- PHONE UPDATE -->
               <div><h4 class="font-bold text-slate-900">Schneller Rückruf</h4><p class="text-sm text-slate-500">Wir sind unter <strong>0155 / 664 25 557</strong> erreichbar.</p></div>
             </div>
           </div>
