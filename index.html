@@ -5,30 +5,38 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>Statistik Writing – Full Service für Ihre Forschung</title>
   <meta name="description" content="Premium Statistik-Coaching für Promotion & Masterarbeit. Data Science Methoden, R/SPSS/Python Support und Fachlektorat." />
+  
+  <!-- ============================================================ -->
+  <!-- 1. COOKIEBOT (Deine echte ID ist aktiv)                      -->
+  <!-- ============================================================ -->
+  <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="ec39aa1a-72bd-4ddf-a08f-c15d9abe31d9" data-blockingmode="auto" type="text/javascript"></script>
 
-  <!-- 1. DESIGN (Muss IMMER zuerst laden!) -->
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&display=swap" rel="stylesheet">
 
-  <!-- 2. COOKIEBOT (Rechtssicherheit) -->
-  <!-- Ersetze die ID unten mit deiner: ec39aa1a-72bd-4ddf-a08f-c15d9abe31d9 -->
-  <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="ec39aa1a-72bd-4ddf-a08f-c15d9abe31d9" data-blockingmode="auto" type="text/javascript"></script>
+  <!-- ============================================================ -->
+  <!-- 2. MARKETING PIXEL (Gesteuert durch Cookiebot)               -->
+  <!-- ============================================================ -->
 
-  <!-- 3. MARKETING PIXEL (Erst nach Zustimmung) -->
-  
-  <!-- GOOGLE (Ads + Analytics) -->
+  <!-- GOOGLE KOMBI-TAG (Ads + Analytics) -->
   <script type="text/plain" data-cookieconsent="marketing" src="https://www.googletagmanager.com/gtag/js?id=AW-17782287671"></script>
   <script type="text/plain" data-cookieconsent="marketing">
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
 
+    // Google Ads Konfiguration
     gtag('config', 'AW-17782287671'); 
+    
+    // Google Analytics 4 Konfiguration
     gtag('config', 'G-2M4TDK0GGZ'); 
   </script>
 
-  <!-- META PIXEL (Facebook) -->
+  <!-- META PIXEL (FACEBOOK) -->
   <script type="text/plain" data-cookieconsent="marketing">
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -39,11 +47,11 @@
     s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
     
+    // Meta ID
     fbq('init', '1325469602014644'); 
     fbq('track', 'PageView');
   </script>
 
-  <!-- Tailwind Config & Styles -->
   <script>
     tailwind.config = {
       theme: {
@@ -93,6 +101,7 @@
       .hover-card-lift:hover { transform: translateY(-5px); box-shadow: 0 20px 40px -10px rgba(29, 78, 216, 0.15); border-color: #93c5fd; }
     }
 
+    /* Form Styles */
     .form-label {
       display: block;
       font-size: 0.875rem;
@@ -122,6 +131,7 @@
     }
   </style>
 </head>
+<body class="bg-white text-slate-900 antialiased font-sans selection:bg-brand-blue selection:text-white overflow-x-hidden">
 
   <!-- HEADER -->
   <header class="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-slate-200 transition-all">
@@ -135,8 +145,8 @@
       <nav class="hidden lg:flex items-center gap-8 text-sm font-bold text-slate-600 uppercase tracking-wide">
         <a href="#probleme" class="hover:text-blue-700 transition-colors">Probleme</a>
         <a href="#kompetenz" class="hover:text-blue-700 transition-colors">Kompetenz</a>
-        <a href="#prozess" class="hover:text-blue-700 transition-colors">Ablauf</a>
         <a href="#testimonials" class="hover:text-blue-700 transition-colors">Erfolge</a>
+        <a href="#prozess" class="hover:text-blue-700 transition-colors">Ablauf</a>
       </nav>
       <div class="flex items-center gap-4">
         <a href="tel:+4915566425557" class="hidden xl:block text-sm font-bold text-slate-700 hover:text-blue-700">0155 / 664 25 557</a>
@@ -148,7 +158,7 @@
   </header>
 
   <main>
-    <!-- HERO SECTION -->
+    <!-- 1. HERO SECTION -->
     <section class="pt-20 pb-16 md:pt-32 md:pb-24 bg-white overflow-hidden">
       <div class="container mx-auto px-4 text-center max-w-5xl relative">
         <div class="inline-flex items-center gap-2 rounded-full border border-blue-100 bg-blue-50 px-4 py-1.5 text-xs font-extrabold text-blue-800 mb-8 uppercase tracking-wide shadow-sm animate-fade-in-up">
@@ -183,12 +193,20 @@
             Direkt anrufen
           </a>
         </div>
+        <p class="text-xs font-bold text-slate-400 uppercase tracking-widest">
+          Ethik-konform • Reproduzierbar • Diskret
+        </p>
       </div>
     </section>
 
-    <!-- KPI SECTION -->
+    <!-- 2. KPI SECTION -->
     <section class="py-12 md:py-16 bg-slate-50 border-y border-slate-200">
       <div class="container mx-auto px-4">
+        <div class="text-center mb-8 md:mb-10">
+          <span class="inline-block bg-white border border-slate-200 text-slate-500 text-[10px] md:text-xs font-bold uppercase tracking-widest px-3 py-1 rounded mb-2 shadow-sm">
+            Warum Statistik Writing?
+          </span>
+        </div>
         <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
           <div class="p-4 md:p-8 rounded-2xl bg-white shadow-sm hover-card-lift border border-slate-100 text-center group">
             <div class="text-2xl md:text-5xl font-extrabold text-slate-900 mb-1 md:mb-2 group-hover:text-blue-700">&gt;5 Jahre</div>
@@ -211,219 +229,627 @@
       </div>
     </section>
 
-    <!-- PROBLEM SECTION -->
+    <!-- 3. PROBLEM SECTION -->
     <section id="probleme" class="py-20 bg-white">
       <div class="container mx-auto px-4">
         <div class="max-w-4xl mx-auto text-center mb-16">
-          <h2 class="text-3xl md:text-5xl font-extrabold text-slate-900 mb-6">Kommen Dir die folgenden <span class="text-blue-700">Probleme</span> bekannt vor?</h2>
+          <h2 class="text-3xl md:text-5xl font-extrabold text-slate-900 mb-6">
+            Kommen Dir die folgenden <span class="text-blue-700">Probleme</span> bekannt vor?
+          </h2>
+          <p class="text-lg text-slate-600">
+            Viele unserer Klienten berichten von genau diesen Hindernissen.
+          </p>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
           <!-- Card 1 -->
           <div class="group relative h-[380px] overflow-hidden rounded-2xl shadow-lg cursor-default">
-            <img src="./images/spss-r-syntax-fehler-hilfe.jpg" alt="Statistik Software Probleme" class="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110">
-            <div class="absolute inset-0 bg-slate-900/80 group-hover:bg-blue-900/80 transition-colors"></div>
+            <img src="./images/spss-r-syntax-fehler-hilfe.jpg" alt="Code" class="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110">
+            <div class="absolute inset-0 bg-slate-900/80 transition-colors duration-500 group-hover:bg-blue-900/80"></div>
             <div class="relative z-10 flex h-full flex-col justify-end p-8 text-white">
               <h3 class="text-2xl font-bold leading-tight">„Ich verstehe das Programm nicht.“</h3>
               <div class="mt-4 transition-all duration-500 h-auto opacity-100 lg:h-0 lg:opacity-0 lg:group-hover:h-auto lg:group-hover:opacity-100">
-                <p class="text-sm text-blue-100 border-l-2 border-yellow-400 pl-3">Syntax-Fehler in SPSS, R oder STATA kosten wertvolle Zeit.</p>
+                <p class="text-sm text-blue-100 font-medium border-l-2 border-yellow-400 pl-3">Die technische Hürde ist hoch: Syntax-Fehler in SPSS, R oder STATA frustrieren und kosten wertvolle Zeit.</p>
               </div>
             </div>
           </div>
           <!-- Card 2 -->
           <div class="group relative h-[380px] overflow-hidden rounded-2xl shadow-lg cursor-default">
-            <img src="./images/statistik-beratung-roter-faden.jpg" alt="Kein Plan" class="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110">
-            <div class="absolute inset-0 bg-slate-900/80 group-hover:bg-blue-900/80 transition-colors"></div>
+            <img src="./images/statistik-beratung-roter-faden.jpg" alt="Plan" class="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110">
+            <div class="absolute inset-0 bg-slate-900/80 transition-colors duration-500 group-hover:bg-blue-900/80"></div>
             <div class="relative z-10 flex h-full flex-col justify-end p-8 text-white">
-              <h3 class="text-2xl font-bold leading-tight">„Wo fange ich an?“</h3>
+              <h3 class="text-2xl font-bold leading-tight">„Ich weiß nicht, wie ich anfangen soll.“</h3>
               <div class="mt-4 transition-all duration-500 h-auto opacity-100 lg:h-0 lg:opacity-0 lg:group-hover:h-auto lg:group-hover:opacity-100">
-                <p class="text-sm text-blue-100 border-l-2 border-yellow-400 pl-3">Ohne roten Faden droht die Arbeit im Chaos zu versinken.</p>
+                <p class="text-sm text-blue-100 font-medium border-l-2 border-yellow-400 pl-3">Dir fehlt ein roter Faden. Ohne klare Strategie droht die Arbeit im Chaos zu versinken.</p>
               </div>
             </div>
           </div>
           <!-- Card 3 -->
           <div class="group relative h-[380px] overflow-hidden rounded-2xl shadow-lg cursor-default">
-            <img src="./images/statistik-hilfe-berufstaetige.jpg" alt="Keine Zeit" class="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110">
-            <div class="absolute inset-0 bg-slate-900/80 group-hover:bg-blue-900/80 transition-colors"></div>
+            <img src="./images/statistik-hilfe-berufstaetige.jpg" alt="Zeit" class="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110">
+            <div class="absolute inset-0 bg-slate-900/80 transition-colors duration-500 group-hover:bg-blue-900/80"></div>
             <div class="relative z-10 flex h-full flex-col justify-end p-8 text-white">
-              <h3 class="text-2xl font-bold leading-tight">„Keine Zeit neben dem Beruf.“</h3>
+              <h3 class="text-2xl font-bold leading-tight">„Mir fehlt neben Beruf & Alltag die Zeit.“</h3>
               <div class="mt-4 transition-all duration-500 h-auto opacity-100 lg:h-0 lg:opacity-0 lg:group-hover:h-auto lg:group-hover:opacity-100">
-                <p class="text-sm text-blue-100 border-l-2 border-yellow-400 pl-3">Tiefes Einarbeiten ist jetzt unrealistisch.</p>
+                <p class="text-sm text-blue-100 font-medium border-l-2 border-yellow-400 pl-3">Der Kalender ist voll. Sich jetzt noch wochenlang tief in Statistik einzuarbeiten, ist unmöglich.</p>
               </div>
             </div>
           </div>
-           <!-- Card 4 -->
+          <!-- Card 4 -->
           <div class="group relative h-[380px] overflow-hidden rounded-2xl shadow-lg cursor-default">
-            <img src="./images/datenbereinigung-excel-spss.jpg" alt="Datenaufbereitung" class="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110">
-            <div class="absolute inset-0 bg-slate-900/80 group-hover:bg-blue-900/80 transition-colors"></div>
+            <img src="./images/datenbereinigung-excel-spss.jpg" alt="Excel" class="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110">
+            <div class="absolute inset-0 bg-slate-900/80 transition-colors duration-500 group-hover:bg-blue-900/80"></div>
             <div class="relative z-10 flex h-full flex-col justify-end p-8 text-white">
-              <h3 class="text-2xl font-bold leading-tight">„Probleme bei Datenaufbereitung.“</h3>
+              <h3 class="text-2xl font-bold leading-tight">„Probleme bei der Datenaufbereitung.“</h3>
               <div class="mt-4 transition-all duration-500 h-auto opacity-100 lg:h-0 lg:opacity-0 lg:group-hover:h-auto lg:group-hover:opacity-100">
-                <p class="text-sm text-blue-100 border-l-2 border-yellow-400 pl-3">Formate stimmen nicht, Variablen fehlen.</p>
+                <p class="text-sm text-blue-100 font-medium border-l-2 border-yellow-400 pl-3">Formate stimmen nicht, Variablen fehlen. Der Datensatz ist noch nicht bereit für die Analyse.</p>
               </div>
             </div>
           </div>
           <!-- Card 5 -->
           <div class="group relative h-[380px] overflow-hidden rounded-2xl shadow-lg cursor-default">
-            <img src="./images/ergebnisteil-schreiben-lektorat.jpg" alt="Verschriftlichung" class="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110">
-            <div class="absolute inset-0 bg-slate-900/80 group-hover:bg-blue-900/80 transition-colors"></div>
+            <img src="./images/ergebnisteil-schreiben-lektorat.jpg" alt="Schreiben" class="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110">
+            <div class="absolute inset-0 bg-slate-900/80 transition-colors duration-500 group-hover:bg-blue-900/80"></div>
             <div class="relative z-10 flex h-full flex-col justify-end p-8 text-white">
-              <h3 class="text-2xl font-bold leading-tight">„Interpretation fällt schwer.“</h3>
+              <h3 class="text-2xl font-bold leading-tight">„Noch nie Statistik verschriftlicht.“</h3>
               <div class="mt-4 transition-all duration-500 h-auto opacity-100 lg:h-0 lg:opacity-0 lg:group-hover:h-auto lg:group-hover:opacity-100">
-                <p class="text-sm text-blue-100 border-l-2 border-yellow-400 pl-3">Wissenschaftlich korrekte Formulierung ist eine Hürde.</p>
+                <p class="text-sm text-blue-100 font-medium border-l-2 border-yellow-400 pl-3">Die Analyse ist das eine – die akademisch korrekte Formulierung ist eine andere Hürde.</p>
               </div>
             </div>
           </div>
           <!-- Card 6 -->
           <div class="group relative h-[380px] overflow-hidden rounded-2xl shadow-lg cursor-default">
-            <img src="./images/statistik-nachhilfe-studenten.jpg" alt="Uni Lehre" class="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110">
-            <div class="absolute inset-0 bg-slate-900/80 group-hover:bg-blue-900/80 transition-colors"></div>
+            <img src="./images/statistik-nachhilfe-studenten.jpg" alt="Uni" class="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110">
+            <div class="absolute inset-0 bg-slate-900/80 transition-colors duration-500 group-hover:bg-blue-900/80"></div>
             <div class="relative z-10 flex h-full flex-col justify-end p-8 text-white">
-              <h3 class="text-2xl font-bold leading-tight">„In der Uni kaum gelernt.“</h3>
+              <h3 class="text-2xl font-bold leading-tight">„Statistik wurde in der Uni kaum beigebracht.“</h3>
               <div class="mt-4 transition-all duration-500 h-auto opacity-100 lg:h-0 lg:opacity-0 lg:group-hover:h-auto lg:group-hover:opacity-100">
-                <p class="text-sm text-blue-100 border-l-2 border-yellow-400 pl-3">Das Wissen ist veraltet oder war nie da.</p>
+                <p class="text-sm text-blue-100 font-medium border-l-2 border-yellow-400 pl-3">Das Wissen ist veraltet oder war nie da. Jetzt neu lernen ist unrealistisch.</p>
               </div>
             </div>
           </div>
-           <!-- Card 7 -->
+          <!-- Card 7 -->
           <div class="group relative h-[380px] overflow-hidden rounded-2xl shadow-lg cursor-default">
-            <img src="./images/statistische-methodik-beratung.jpg" alt="Methodik Unsicherheit" class="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110">
-            <div class="absolute inset-0 bg-slate-900/80 group-hover:bg-blue-900/80 transition-colors"></div>
+            <img src="./images/statistische-methodik-beratung.jpg" alt="Unsicherheit" class="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110">
+            <div class="absolute inset-0 bg-slate-900/80 transition-colors duration-500 group-hover:bg-blue-900/80"></div>
             <div class="relative z-10 flex h-full flex-col justify-end p-8 text-white">
-              <h3 class="text-2xl font-bold leading-tight">„Unsicherheit in Methodik.“</h3>
+              <h3 class="text-2xl font-bold leading-tight">„Unsicherheit in der Methodik.“</h3>
               <div class="mt-4 transition-all duration-500 h-auto opacity-100 lg:h-0 lg:opacity-0 lg:group-hover:h-auto lg:group-hover:opacity-100">
-                <p class="text-sm text-blue-100 border-l-2 border-yellow-400 pl-3">Habe ich den richtigen Test gewählt?</p>
+                <p class="text-sm text-blue-100 font-medium border-l-2 border-yellow-400 pl-3">Habe ich den richtigen Test gewählt? Fehlendes Methodenwissen raubt Dir das Selbstvertrauen.</p>
               </div>
             </div>
           </div>
-           <!-- Card 8 -->
+          <!-- Card 8 -->
           <div class="group relative h-[380px] overflow-hidden rounded-2xl shadow-lg cursor-default">
-            <img src="./images/verteidigung-promotion-vorbereitung.jpg" alt="Gutachter Feedback" class="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110">
-            <div class="absolute inset-0 bg-slate-900/80 group-hover:bg-blue-900/80 transition-colors"></div>
+            <img src="./images/verteidigung-promotion-vorbereitung.jpg" alt="Gutachter" class="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110">
+            <div class="absolute inset-0 bg-slate-900/80 transition-colors duration-500 group-hover:bg-blue-900/80"></div>
             <div class="relative z-10 flex h-full flex-col justify-end p-8 text-white">
-              <h3 class="text-2xl font-bold leading-tight">„Angst vor Gutachtern.“</h3>
+              <h3 class="text-2xl font-bold leading-tight">„Angst vor kritischem Gutachter-Feedback.“</h3>
               <div class="mt-4 transition-all duration-500 h-auto opacity-100 lg:h-0 lg:opacity-0 lg:group-hover:h-auto lg:group-hover:opacity-100">
-                <p class="text-sm text-blue-100 border-l-2 border-yellow-400 pl-3">Methodische Fehler können die Note gefährden.</p>
+                <p class="text-sm text-blue-100 font-medium border-l-2 border-yellow-400 pl-3">Die Sorge, dass methodische Fehler die Note gefährden. Wir machen Ihre Arbeit prüfungsfest.</p>
               </div>
             </div>
           </div>
         </div>
+        
+        <!-- CTA 4 (Zentriert) -->
+        <div class="mt-10 text-center">
+           <a href="https://calendly.com/statistik-writing/kostenloses-erstgesprach/" class="inline-block bg-brand-orange text-white text-lg px-8 py-3 rounded-lg font-bold shadow-lg hover:bg-orange-600 hover:-translate-y-0.5 transition-all w-full md:w-auto">
+             Jetzt kostenloses Erstgespräch anfragen
+           </a>
+        </div>
       </div>
     </section>
 
-    <!-- NOT YOUR FAULT SECTION -->
-    <section class="py-16 md:py-24 bg-slate-50 border-t border-slate-200">
+    <!-- 4. "ES IST NICHT DEINE SCHULD" -->
+    <section class="py-16 md:py-24 bg-slate-50 border-t border-slate-200 overflow-hidden">
       <div class="container mx-auto px-4">
         <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
-          <div class="relative rounded-2xl overflow-hidden shadow-2xl aspect-[4/5] lg:h-[600px]">
-            <img src="./images/statistik-coaching-team-berlin.jpg" alt="Statistik Hilfe Team" class="w-full h-full object-cover">
-            <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/70 to-transparent p-8 flex flex-col justify-end">
-              <blockquote class="text-white text-lg italic">„90% aller Studierenden kämpfen mit Statistik...“</blockquote>
+          <!-- Left: Image & Quote -->
+          <div class="relative rounded-2xl overflow-hidden shadow-2xl group lg:sticky lg:top-24 mb-8 lg:mb-0 aspect-[4/5] lg:aspect-auto lg:h-[600px]">
+            <img src="./images/statistik-coaching-team-berlin.jpg" alt="Students Working" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/70 to-transparent p-6 md:p-8 flex flex-col justify-end">
+              <blockquote class="text-white text-base md:text-lg font-medium leading-relaxed italic">
+                „90% aller Studierenden kämpfen mit Statistik, nicht weil sie unfähig sind, sondern weil die Lehre an Hochschulen oft rein theoretisch und nicht praxisbezogen genug für Abschlussarbeiten ist. Sie verlieren Zeit durch Prokrastination und keinen genauen Plan.“
+              </blockquote>
               <div class="mt-6 flex items-center gap-4">
-                <div class="h-12 w-12 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold text-xl">MF</div>
-                <div><div class="font-bold text-white">Maik Filusch</div><div class="text-sm text-blue-200">Experte</div></div>
+                <div class="h-12 w-12 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold text-xl shrink-0">MF</div>
+                <div>
+                  <div class="font-bold text-white">Maik Filusch</div>
+                  <div class="text-sm text-blue-200">Wirtschaftsmathematiker & Experte</div>
+                </div>
               </div>
             </div>
           </div>
+          <!-- Right: Typical Errors List -->
           <div>
-            <h2 class="text-3xl font-extrabold text-slate-900 mb-8">Häufige Fehler <span class="text-blue-700">(Nicht deine Schuld)</span></h2>
-            <!-- Error List -->
+            <h2 class="text-2xl md:text-4xl font-extrabold text-slate-900 mb-8 leading-tight">
+              Die häufigsten Fehler <br><span class="text-blue-700">(Es ist nicht deine Schuld)</span>
+            </h2>
             <div class="space-y-4">
-                <div class="flex gap-4 p-5 rounded-xl bg-white border border-red-100 shadow-sm">
-                  <div class="text-red-600 font-bold text-xl">✕</div>
-                  <div><h4 class="font-bold">Unterschätzen der Komplexität</h4><p class="text-sm text-slate-600">Panik kurz vor Abgabe vermeiden.</p></div>
-                </div>
-                 <div class="flex gap-4 p-5 rounded-xl bg-white border border-red-100 shadow-sm">
-                  <div class="text-red-600 font-bold text-xl">✕</div>
-                  <div><h4 class="font-bold">Ghostwriting & KI</h4><p class="text-sm text-slate-600">Vorsicht vor Betrug und Halluzinationen.</p></div>
-                </div>
-                <div class="flex gap-4 p-5 rounded-xl bg-white border border-red-100 shadow-sm">
-                  <div class="text-red-600 font-bold text-xl">✕</div>
-                  <div><h4 class="font-bold">DIY-Fehler ohne Vorwissen</h4><p class="text-sm text-slate-600">Falsche Testverfahren führen zu falschen Ergebnissen.</p></div>
-                </div>
-                <div class="flex gap-4 p-5 rounded-xl bg-white border border-red-100 shadow-sm">
-                  <div class="text-red-600 font-bold text-xl">✕</div>
-                  <div><h4 class="font-bold">Opportunitätskosten</h4><p class="text-sm text-slate-600">Zeitverlust ist oft teurer als ein Coaching.</p></div>
-                </div>
-                <div class="flex gap-4 p-5 rounded-xl bg-white border border-red-100 shadow-sm">
-                  <div class="text-red-600 font-bold text-xl">✕</div>
-                  <div><h4 class="font-bold">Teillösungen suchen</h4><p class="text-sm text-slate-600">Ohne Interpretation fliegt die Arbeit in der Verteidigung auf.</p></div>
-                </div>
+              <div class="flex gap-4 p-4 md:p-5 rounded-xl bg-white border border-red-100 shadow-sm hover:shadow-md transition-all items-start">
+                <div class="flex-shrink-0 w-8 h-8 md:w-10 md:h-10 rounded-full bg-red-50 text-red-600 flex items-center justify-center font-bold text-lg">✕</div>
+                <div><h4 class="font-bold text-slate-900 text-base md:text-lg">Unterschätzen der Komplexität</h4><p class="text-slate-600 mt-1 text-sm">"Ach, den empirischen Teil mache ich in zwei Wochen." – Der häufigste Grund für Panik kurz vor Abgabe.</p></div>
+              </div>
+              <div class="flex gap-4 p-4 md:p-5 rounded-xl bg-white border border-red-100 shadow-sm hover:shadow-md transition-all items-start">
+                <div class="flex-shrink-0 w-8 h-8 md:w-10 md:h-10 rounded-full bg-red-50 text-red-600 flex items-center justify-center font-bold text-lg">✕</div>
+                <div><h4 class="font-bold text-slate-900 text-base md:text-lg">Die "Billig-Falle": Ghostwriting & KI</h4><p class="text-slate-600 mt-1 text-sm">Vorsicht vor ChatGPT Halluzinationen und illegalem Ghostwriting. Das Risiko aufzufliegen ist enorm.</p></div>
+              </div>
+              <div class="flex gap-4 p-4 md:p-5 rounded-xl bg-white border border-red-100 shadow-sm hover:shadow-md transition-all items-start">
+                <div class="flex-shrink-0 w-8 h-8 md:w-10 md:h-10 rounded-full bg-red-50 text-red-600 flex items-center justify-center font-bold text-lg">✕</div>
+                <div><h4 class="font-bold text-slate-900 text-base md:text-lg">DIY-Fehler ohne Vorwissen</h4><p class="text-slate-600 mt-1 text-sm">Falsche Testverfahren führen zwangsläufig zu falschen Ergebnissen.</p></div>
+              </div>
+              <div class="flex gap-4 p-4 md:p-5 rounded-xl bg-white border border-red-100 shadow-sm hover:shadow-md transition-all items-start">
+                <div class="flex-shrink-0 w-8 h-8 md:w-10 md:h-10 rounded-full bg-red-50 text-red-600 flex items-center justify-center font-bold text-lg">✕</div>
+                <div><h4 class="font-bold text-slate-900 text-base md:text-lg">Opportunitätskosten ignorieren</h4><p class="text-slate-600 mt-1 text-sm">Ein verschobenes Semester ist oft 10x teurer als ein professionelles Statistik-Coaching.</p></div>
+              </div>
+              <div class="flex gap-4 p-4 md:p-5 rounded-xl bg-white border border-red-100 shadow-sm hover:shadow-md transition-all items-start">
+                <div class="flex-shrink-0 w-8 h-8 md:w-10 md:h-10 rounded-full bg-red-50 text-red-600 flex items-center justify-center font-bold text-lg">✕</div>
+                <div><h4 class="font-bold text-slate-900 text-base md:text-lg">Suche nach Teillösungen</h4><p class="text-slate-600 mt-1 text-sm">Nur die Auswertung buchen, aber die Interpretation nicht verstehen. Das fliegt spätestens in der Verteidigung auf.</p></div>
+              </div>
+            </div>
+            <!-- CTA (Zentriert) -->
+            <div class="mt-10 text-center">
+               <a href="https://calendly.com/statistik-writing/kostenloses-erstgesprach/" class="inline-block bg-brand-orange text-white text-lg px-8 py-3 rounded-lg font-bold shadow-lg hover:bg-orange-600 hover:-translate-y-0.5 transition-all w-full md:w-auto">
+                 Jetzt kostenloses Erstgespräch anfragen
+               </a>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- KOMPETENZ / EXPERTISE -->
+    <!-- 5. UNSERE KOMPETENZEN -->
     <section id="kompetenz" class="py-16 md:py-24 bg-white border-t border-slate-200">
-       <div class="container mx-auto px-4 text-center">
-         <h2 class="text-3xl font-extrabold mb-12">Unsere Kompetenzen</h2>
-         <div class="grid md:grid-cols-3 gap-6">
-           <div class="p-6 border rounded-xl hover:shadow-lg transition-all"><h3 class="font-bold mb-2">Studienplanung</h3><p class="text-sm text-slate-600">Hypothesen & Power-Analyse</p></div>
-           <div class="p-6 border rounded-xl hover:shadow-lg transition-all"><h3 class="font-bold mb-2">Fragebogen</h3><p class="text-sm text-slate-600">Validität & Reliabilität</p></div>
-           <div class="p-6 border rounded-xl hover:shadow-lg transition-all"><h3 class="font-bold mb-2">Data Cleaning</h3><p class="text-sm text-slate-600">R/Python Skripte</p></div>
-           <div class="p-6 border rounded-xl hover:shadow-lg transition-all"><h3 class="font-bold mb-2">Advanced Stats</h3><p class="text-sm text-slate-600">Mixed Models, GLM, SEM</p></div>
-           <div class="p-6 border rounded-xl hover:shadow-lg transition-all"><h3 class="font-bold mb-2">Alle Tools</h3><p class="text-sm text-slate-600">SPSS, R, Stata, SAS</p></div>
-           <div class="p-6 border rounded-xl hover:shadow-lg transition-all"><h3 class="font-bold mb-2">Fachlektorat</h3><p class="text-sm text-slate-600">Akademische Interpretation</p></div>
-         </div>
-       </div>
+      <div class="container mx-auto px-4">
+        <div class="text-center max-w-3xl mx-auto mb-12 md:mb-16">
+          <span class="text-blue-700 font-bold tracking-widest uppercase text-xs mb-2 block">Expertise</span>
+          <h2 class="text-2xl md:text-4xl font-extrabold text-slate-900">Unsere Kompetenzen & Methoden</h2>
+          <p class="text-slate-600 mt-4">Wir arbeiten nach modernsten Data Science Standards.</p>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+          <div class="group p-6 md:p-8 border border-slate-200 rounded-xl hover:border-blue-400 hover:shadow-lg transition-all bg-white relative overflow-hidden">
+            <div class="h-1 w-full bg-blue-600 absolute top-0 left-0 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></div>
+            <h3 class="text-lg font-bold text-slate-900 mb-2">Studienplanung & Hypothesen</h3>
+            <p class="text-sm text-slate-600">Wir nutzen Power-Analysen (G*Power), um Ihre Fallzahl präzise zu berechnen.</p>
+          </div>
+          <div class="group p-6 md:p-8 border border-slate-200 rounded-xl hover:border-blue-400 hover:shadow-lg transition-all bg-white relative overflow-hidden">
+            <div class="h-1 w-full bg-blue-600 absolute top-0 left-0 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></div>
+            <h3 class="text-lg font-bold text-slate-900 mb-2">Methodisches Fragebogen-Design</h3>
+            <p class="text-sm text-slate-600">Validität und Reliabilität stehen an erster Stelle.</p>
+          </div>
+          <div class="group p-6 md:p-8 border border-slate-200 rounded-xl hover:border-blue-400 hover:shadow-lg transition-all bg-white relative overflow-hidden">
+            <div class="h-1 w-full bg-blue-600 absolute top-0 left-0 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></div>
+            <h3 class="text-lg font-bold text-slate-900 mb-2">Advanced Data Engineering</h3>
+            <p class="text-sm text-slate-600">Mehr als nur Excel. Wir nutzen Python- & R-Skripte zur Bereinigung.</p>
+          </div>
+          <div class="group p-6 md:p-8 border border-slate-200 rounded-xl hover:border-blue-400 hover:shadow-lg transition-all bg-white relative overflow-hidden">
+            <div class="h-1 w-full bg-blue-600 absolute top-0 left-0 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></div>
+            <h3 class="text-lg font-bold text-slate-900 mb-2">State-of-the-Art Data Science</h3>
+            <p class="text-sm text-slate-600">Von Mixed-Models bis GLM. Wir arbeiten skriptbasiert.</p>
+          </div>
+          <div class="group p-6 md:p-8 border border-slate-200 rounded-xl hover:border-blue-400 hover:shadow-lg transition-all bg-white relative overflow-hidden">
+            <div class="h-1 w-full bg-blue-600 absolute top-0 left-0 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></div>
+            <h3 class="text-lg font-bold text-slate-900 mb-2">Tool-Agnostik (R, SPSS, Python)</h3>
+            <p class="text-sm text-slate-600">Wir beherrschen SPSS, R (Tidyverse), Python (Pandas), STATA und SAS.</p>
+          </div>
+          <div class="group p-6 md:p-8 border border-slate-200 rounded-xl hover:border-blue-400 hover:shadow-lg transition-all bg-white relative overflow-hidden">
+            <div class="h-1 w-full bg-blue-600 absolute top-0 left-0 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></div>
+            <h3 class="text-lg font-bold text-slate-900 mb-2">AI-gestütztes Fachlektorat</h3>
+            <p class="text-sm text-slate-600">Experten-Interpretation plus KI-Check für logische Konsistenz.</p>
+          </div>
+        </div>
+        <div class="text-center">
+           <a href="https://calendly.com/statistik-writing/kostenloses-erstgesprach/" class="inline-block bg-brand-orange text-white text-lg px-8 py-3 rounded-lg font-bold shadow-lg hover:bg-orange-600 hover:-translate-y-0.5 transition-all">
+             Kompetenzgespräch vereinbaren
+           </a>
+        </div>
+      </div>
     </section>
 
-    <!-- MAIK FILUSCH SECTION -->
-    <section id="ueber-uns" class="py-16 bg-slate-50 border-t border-slate-200">
+    <!-- 6. TESTIMONIALS (Moved UP here) -->
+    <section id="testimonials" class="py-16 md:py-24 bg-slate-50 border-t border-slate-200">
+      <div class="container mx-auto px-4">
+        <div class="text-center max-w-3xl mx-auto mb-12 md:mb-16">
+          <h2 class="text-2xl md:text-4xl font-extrabold text-slate-900 mb-6">Erfolgsgeschichten, die für Statistik Writing sprechen</h2>
+          <p class="text-base md:text-lg text-slate-600">Echte Ergebnisse aus BWL, Medizin & Psychologie.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+          
+          <!-- Case 1: BWLer -->
+          <div class="bg-white rounded-2xl shadow-lg overflow-hidden border border-slate-200 flex flex-col h-full">
+            <div class="p-6 flex items-center gap-4 border-b border-slate-100">
+              <div class="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center text-blue-700 font-bold text-xl">MT</div>
+              <div>
+                <div class="font-bold text-slate-900">Max T.</div>
+                <div class="text-xs text-slate-500 uppercase">BWL / Management</div>
+              </div>
+            </div>
+            <div class="bg-red-50/50 p-5 border-b border-red-100 flex-grow">
+              <span class="text-xs font-bold text-red-600 uppercase tracking-wide mb-2 block">Ausgangslage</span>
+              <p class="text-sm text-slate-700">Komplexe Regression nötig, aber durch Vollzeit-Job keine Zeit für die Einarbeitung.</p>
+            </div>
+            <div class="bg-white p-5 border-b border-slate-100">
+              <span class="text-xs font-bold text-slate-400 uppercase tracking-wide mb-2 block">Das Ziel</span>
+              <p class="text-sm text-slate-600">Saubere Auswertung & Interpretation innerhalb von 2 Wochen.</p>
+            </div>
+            <div class="bg-emerald-50/50 p-5">
+              <span class="text-xs font-bold text-emerald-600 uppercase tracking-wide mb-2 block">Das Ergebnis</span>
+              <p class="text-sm text-slate-800 font-medium">Pünktliche Abgabe, Note 1.3 und vollständiger Anhang.</p>
+            </div>
+          </div>
+
+          <!-- Case 2: Mediziner -->
+          <div class="bg-white rounded-2xl shadow-lg overflow-hidden border border-slate-200 flex flex-col h-full">
+            <div class="p-6 flex items-center gap-4 border-b border-slate-100">
+              <div class="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center text-blue-700 font-bold text-xl">SL</div>
+              <div>
+                <div class="font-bold text-slate-900">Dr. Sarah L.</div>
+                <div class="text-xs text-slate-500 uppercase">Medizin / Promotion</div>
+              </div>
+            </div>
+            <div class="bg-red-50/50 p-5 border-b border-red-100 flex-grow">
+              <span class="text-xs font-bold text-red-600 uppercase tracking-wide mb-2 block">Ausgangslage</span>
+              <p class="text-sm text-slate-700">Reviewer forderte methodische Überarbeitung (Mixed Models) & neue Grafiken.</p>
+            </div>
+            <div class="bg-white p-5 border-b border-slate-100">
+              <span class="text-xs font-bold text-slate-400 uppercase tracking-wide mb-2 block">Das Ziel</span>
+              <p class="text-sm text-slate-600">Erstellung "Response to Reviewers" & publikationsreife Plots.</p>
+            </div>
+            <div class="bg-emerald-50/50 p-5">
+              <span class="text-xs font-bold text-emerald-600 uppercase tracking-wide mb-2 block">Das Ergebnis</span>
+              <p class="text-sm text-slate-800 font-medium">Paper akzeptiert (Accepted), Statistik wurde lobend erwähnt.</p>
+            </div>
+          </div>
+
+          <!-- Case 3: Psychologie -->
+          <div class="bg-white rounded-2xl shadow-lg overflow-hidden border border-slate-200 flex flex-col h-full">
+            <div class="p-6 flex items-center gap-4 border-b border-slate-100">
+              <div class="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center text-blue-700 font-bold text-xl">JK</div>
+              <div>
+                <div class="font-bold text-slate-900">Julia K.</div>
+                <div class="text-xs text-slate-500 uppercase">M.Sc. Psychologie</div>
+              </div>
+            </div>
+            <div class="bg-red-50/50 p-5 border-b border-red-100 flex-grow">
+              <span class="text-xs font-bold text-red-600 uppercase tracking-wide mb-2 block">Ausgangslage</span>
+              <p class="text-sm text-slate-700">R-Syntax funktionierte nicht, SEM (Strukturgleichungsmodell) unklar.</p>
+            </div>
+            <div class="bg-white p-5 border-b border-slate-100">
+              <span class="text-xs font-bold text-slate-400 uppercase tracking-wide mb-2 block">Das Ziel</span>
+              <p class="text-sm text-slate-600">Fehlerfreie Syntax & korrekte APA-Berichterstattung.</p>
+            </div>
+            <div class="bg-emerald-50/50 p-5">
+              <span class="text-xs font-bold text-emerald-600 uppercase tracking-wide mb-2 block">Das Ergebnis</span>
+              <p class="text-sm text-slate-800 font-medium">Stressfreie Abgabe und Sicherheit in der Verteidigung.</p>
+            </div>
+          </div>
+
+        </div>
+        <div class="text-center mt-16">
+           <a href="https://calendly.com/statistik-writing/kostenloses-erstgesprach/" class="inline-block bg-brand-orange text-white text-lg px-8 py-3 rounded-lg font-bold shadow-lg hover:bg-orange-600 hover:shadow-2xl hover:scale-[1.02] transition-all duration-200">
+             Jetzt kostenloses Erstgespräch anfragen
+           </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. PROCESS SECTION -->
+    <section id="prozess" class="py-16 md:py-24 bg-white border-t border-slate-200">
+      <div class="container mx-auto px-4">
+        <div class="text-center max-w-3xl mx-auto mb-12 md:mb-16">
+          <h2 class="text-2xl md:text-4xl font-extrabold text-slate-900 mb-6">In drei Schritten systematisch zum Erfolg</h2>
+          <p class="text-base md:text-lg text-slate-600">Ein bewährter Prozess, angepasst für Berufstätige, Mediziner & Promovierende.</p>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
+          <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:border-blue-200 transition-all relative">
+            <div class="text-blue-700 font-extrabold text-5xl mb-6 opacity-20">01</div>
+            <h3 class="text-xl font-bold text-slate-900 mb-4">Individueller Plan</h3>
+            <p class="text-slate-600 leading-relaxed">Zu Beginn legen wir gemeinsam fest, welche Meilensteine realistisch erreichbar sind.</p>
+          </div>
+          <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:border-blue-200 transition-all relative">
+            <div class="text-blue-700 font-extrabold text-5xl mb-6 opacity-20">02</div>
+            <h3 class="text-xl font-bold text-slate-900 mb-4">Fundamentale Methodik</h3>
+            <p class="text-slate-600 leading-relaxed">Wir wenden die nötigen Methoden und Tools (R/SPSS) für Sie an.</p>
+          </div>
+          <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:border-blue-200 transition-all relative">
+            <div class="text-blue-700 font-extrabold text-5xl mb-6 opacity-20">03</div>
+            <h3 class="text-xl font-bold text-slate-900 mb-4">Begleitung bis zur Abgabe</h3>
+            <p class="text-slate-600 leading-relaxed">Wir unterstützen Sie dabei, die Ergebnisse in Ihr Forschungsprojekt zu integrieren.</p>
+          </div>
+        </div>
+        <div class="text-center">
+           <a href="https://calendly.com/statistik-writing/kostenloses-erstgesprach/" class="inline-block bg-brand-orange text-white text-lg px-8 py-3 rounded-lg font-bold shadow-lg hover:bg-orange-600 hover:-translate-y-0.5 transition-all">
+             Jetzt kostenloses Erstgespräch anfragen
+           </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. WHY US -->
+    <section class="py-16 md:py-24 bg-white border-t border-slate-200">
+      <div class="container mx-auto px-4">
+        <div class="text-center max-w-3xl mx-auto mb-12 md:mb-16">
+          <h2 class="text-2xl md:text-4xl font-extrabold text-slate-900 mb-4">Warum Klienten Statistik Writing vertrauen</h2>
+          <p class="text-base md:text-lg text-slate-600">Wir sind stark nachgefragt – aus guten Gründen.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+          <div class="p-6 bg-slate-50 rounded-2xl border border-slate-100 text-center hover:border-blue-200 transition-all">
+            <div class="w-14 h-14 mx-auto bg-white border border-slate-200 text-blue-700 rounded-full flex items-center justify-center text-2xl mb-4 shadow-sm">⚖️</div>
+            <h3 class="font-bold text-slate-900 mb-2">100% Legal</h3>
+            <p class="text-sm text-slate-600">Kein Ghostwriting.</p>
+          </div>
+          <div class="p-6 bg-slate-50 rounded-2xl border border-slate-100 text-center hover:border-blue-200 transition-all">
+            <div class="w-14 h-14 mx-auto bg-white border border-slate-200 text-blue-700 rounded-full flex items-center justify-center text-2xl mb-4 shadow-sm">📄</div>
+            <h3 class="font-bold text-slate-900 mb-2">Zertifiziert</h3>
+            <p class="text-sm text-slate-600">Steuerlich absetzbar.</p>
+          </div>
+          <div class="p-6 bg-slate-50 rounded-2xl border border-slate-100 text-center hover:border-blue-200 transition-all">
+             <div class="w-14 h-14 mx-auto bg-white border border-slate-200 text-blue-700 rounded-full flex items-center justify-center text-2xl mb-4 shadow-sm">🤝</div>
+            <h3 class="font-bold text-slate-900 mb-2">Persönlich</h3>
+            <p class="text-sm text-slate-600">Individuelle Betreuung.</p>
+          </div>
+          <div class="p-6 bg-slate-50 rounded-2xl border border-slate-100 text-center hover:border-blue-200 transition-all">
+             <div class="w-14 h-14 mx-auto bg-white border border-slate-200 text-blue-700 rounded-full flex items-center justify-center text-2xl mb-4 shadow-sm">🎓</div>
+            <h3 class="font-bold text-slate-900 mb-2">Full Service</h3>
+            <p class="text-sm text-slate-600">Bis zur Verteidigung.</p>
+          </div>
+        </div>
+        <div class="text-center">
+           <a href="https://calendly.com/statistik-writing/kostenloses-erstgesprach/" class="inline-block bg-brand-orange text-white text-lg px-8 py-3 rounded-lg font-bold shadow-lg hover:bg-orange-600 hover:-translate-y-0.5 transition-all">
+             Jetzt kostenloses Erstgespräch anfragen
+           </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. NEXT STEPS -->
+    <section class="py-16 md:py-24 bg-white border-t border-slate-200">
+      <div class="container mx-auto px-4">
+        <div class="text-center max-w-3xl mx-auto mb-12 md:mb-16">
+          <h2 class="text-2xl md:text-4xl font-extrabold text-slate-900 mb-6">
+            Die nächsten Schritte
+          </h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch mb-12">
+          <!-- Card 1 (Dark) -->
+          <div class="p-8 rounded-2xl bg-slate-800 text-white shadow-xl flex flex-col relative overflow-hidden">
+            <div class="text-4xl font-extrabold mb-4 text-blue-400">01.</div>
+            <h3 class="text-xl font-bold mb-4">Erstgespräch vereinbaren</h3>
+            <p class="text-slate-300 text-sm leading-relaxed flex-grow mb-8">
+              Im Telefonat finden wir heraus, wie wir Dir helfen können.
+            </p>
+            <a href="https://calendly.com/statistik-writing/kostenloses-erstgesprach/" class="block w-full text-center bg-orange-500 text-white font-bold py-3 rounded-lg hover:bg-orange-600 transition-all shadow-lg">Termin buchen</a>
+          </div>
+          <!-- Cards 2-4 -->
+          <div class="p-8 rounded-2xl bg-white border border-slate-200 shadow-sm flex flex-col hover:border-blue-300 transition-all">
+            <div class="text-4xl font-extrabold mb-4 text-slate-900">02.</div>
+            <h3 class="text-xl font-bold mb-4 text-slate-900">Der Plan</h3>
+            <p class="text-slate-600 text-sm leading-relaxed">In einem Folgegespräch zeigen wir Dir, wie wir schrittweise vorgehen.</p>
+          </div>
+          <div class="p-8 rounded-2xl bg-white border border-slate-200 shadow-sm flex flex-col hover:border-blue-300 transition-all">
+            <div class="text-4xl font-extrabold mb-4 text-slate-900">03.</div>
+            <h3 class="text-xl font-bold mb-4 text-slate-900">Angebot</h3>
+            <p class="text-slate-600 text-sm leading-relaxed">Transparentes Angebot, genau auf Deine Deadline zugeschnitten.</p>
+          </div>
+          <div class="p-8 rounded-2xl bg-white border border-slate-200 shadow-sm flex flex-col hover:border-blue-300 transition-all">
+            <div class="text-4xl font-extrabold mb-4 text-slate-900">04.</div>
+            <h3 class="text-xl font-bold mb-4 text-slate-900">Start</h3>
+            <p class="text-slate-600 text-sm leading-relaxed">Bereits nach wenigen Tagen stehen die ersten Ergebnisse der Auswertung.</p>
+          </div>
+        </div>
+        <div class="text-center">
+           <a href="https://calendly.com/statistik-writing/kostenloses-erstgesprach/" class="inline-block bg-brand-orange text-white text-lg px-8 py-3 rounded-lg font-bold shadow-lg hover:bg-orange-600 hover:-translate-y-0.5 transition-all">
+             Jetzt kostenloses Erstgespräch anfragen
+           </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10. MAIK FILUSCH -->
+    <section id="ueber-uns" class="py-16 md:py-24 bg-slate-50 border-t border-slate-200">
       <div class="container mx-auto px-4">
         <div class="grid md:grid-cols-12 gap-12 items-start">
-          <div class="md:col-span-4 flex flex-col items-center md:items-start">
-            <div class="w-40 h-40 rounded-full overflow-hidden border-4 border-white shadow-lg mb-4">
-              <img src="./images/maik-filusch-statistik-experte.jpg" alt="Maik Filusch" class="w-full h-full object-cover">
+          <div class="md:col-span-4 flex flex-col items-center md:items-start text-center md:text-left space-y-4 md:sticky md:top-24">
+            <div class="relative w-40 h-40 rounded-full overflow-hidden border-4 border-white shadow-lg">
+              <img src="./images/maik-filusch-statistik-experte.jpg" alt="Maik Filusch" class="absolute inset-0 w-full h-full object-cover">
             </div>
-            <h3 class="text-2xl font-bold">Maik Filusch</h3>
-            <p class="text-slate-500">Wirtschafts- & Finanzmathematiker</p>
+            <div>
+              <h3 class="text-2xl font-bold text-slate-900">Maik Filusch</h3>
+              <p class="text-slate-500 font-medium">Wirtschafts- & Finanzmathematiker</p>
+              <p class="text-sm text-slate-400 mt-1">Agenturinhaber</p>
+            </div>
           </div>
           <div class="md:col-span-8">
-             <h2 class="text-3xl font-bold mb-6">Wir sind Fachleute.</h2>
-             <p class="text-slate-600 mb-4">Empathie gepaart mit mathematischer Präzision. Aus meiner Erfahrung im Asset Liability Management weiß ich: 99,9% Genauigkeit sind oft nicht genug.</p>
-             <p class="text-slate-600">Genau diese Sorgfalt bringen wir in dein Projekt.</p>
+            <h2 class="text-2xl md:text-4xl font-extrabold text-slate-900 mb-8 leading-tight">
+              Wir sind Fachleute mit mehrjähriger Erfahrung im statistischen Bereich.
+            </h2>
+            <div class="space-y-6 text-base md:text-lg text-slate-600 leading-relaxed mb-10">
+              <p>Statistik ist Vertrauenssache. Ich habe schon während meines eigenen Studiums Nachhilfe gegeben und musste miterleben, wie ein guter Freund sein Studium abbrach – einzig und allein wegen der Hürde 'Empirie'. Das darf nicht sein.</p>
+              <p>Doch Empathie allein reicht nicht für beste Ergebnisse. Als Wirtschafts- & Finanzmathematiker habe ich in meiner Laufbahn als Asset Liability Manager geholfen, Bestände im Milliarden-Euro-Bereich zu verwalten. In diesem Umfeld sind 99,9% Genauigkeit oft nicht genug – kleinste Fehler können enorme Auswirkungen haben.</p>
+              <p>Genau diese extreme Präzision und methodische Sorgfalt bringe ich heute in Ihr akademisches Projekt ein. Das ist das Fundament von Statistik Writing: Menschliches Verständnis gepaart mit höchster professioneller Präzision.</p>
+            </div>
+            <div class="grid grid-cols-2 gap-6 mb-12">
+              <div class="pl-4 border-l-4 border-blue-600"><span class="block text-2xl md:text-3xl font-extrabold text-slate-900">>300</span><span class="text-xs md:text-sm text-slate-500 uppercase font-bold">Projekte</span></div>
+              <div class="pl-4 border-l-4 border-blue-600"><span class="block text-2xl md:text-3xl font-extrabold text-slate-900">100%</span><span class="text-xs md:text-sm text-slate-500 uppercase font-bold">Verlässlichkeit</span></div>
+            </div>
+            <div class="mt-8"><p class="font-script text-4xl md:text-5xl text-slate-800 -rotate-2">Maik Filusch</p></div>
+            <div class="mt-12 text-center md:text-left">
+               <a href="https://calendly.com/statistik-writing/kostenloses-erstgesprach/" class="inline-block bg-brand-orange text-white text-lg px-8 py-3 rounded-lg font-bold shadow-lg hover:bg-orange-600 hover:-translate-y-0.5 transition-all">
+                 Jetzt kostenloses Erstgespräch anfragen
+               </a>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- KONTAKT SECTION -->
+    <!-- 11. FAQ -->
+    <section class="py-16 md:py-24 bg-white border-t border-slate-200">
+      <div class="container mx-auto px-4 max-w-3xl">
+        <div class="text-center mb-12">
+          <h2 class="text-2xl md:text-4xl font-extrabold text-slate-900">Häufig gestellte Fragen</h2>
+        </div>
+        <div class="space-y-4 mb-12">
+          <details class="group bg-slate-50 p-6 rounded-xl border border-slate-100 cursor-pointer">
+            <summary class="flex justify-between items-center font-bold text-slate-900 list-none">Ist das legal?<span class="transition-transform group-open:rotate-180 text-blue-600">▾</span></summary>
+            <div class="mt-4 text-slate-600 text-sm">Ja, unsere Arbeit ist legal (Coaching/Lektorat).</div>
+          </details>
+          <details class="group bg-slate-50 p-6 rounded-xl border border-slate-100 cursor-pointer">
+            <summary class="flex justify-between items-center font-bold text-slate-900 list-none">Software?<span class="transition-transform group-open:rotate-180 text-blue-600">▾</span></summary>
+            <div class="mt-4 text-slate-600 text-sm">SPSS, R, Python, STATA, SAS, Excel.</div>
+          </details>
+          <details class="group bg-slate-50 p-6 rounded-xl border border-slate-100 cursor-pointer">
+            <summary class="flex justify-between items-center font-bold text-slate-900 list-none">Express?<span class="transition-transform group-open:rotate-180 text-blue-600">▾</span></summary>
+            <div class="mt-4 text-slate-600 text-sm">Start in 48h möglich.</div>
+          </details>
+        </div>
+        <div class="text-center">
+           <a href="https://calendly.com/statistik-writing/kostenloses-erstgesprach/" class="inline-block bg-brand-orange text-white text-lg px-8 py-3 rounded-lg font-bold shadow-lg hover:bg-orange-600 hover:-translate-y-0.5 transition-all">
+             Jetzt kostenloses Erstgespräch anfragen
+           </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 12. DRINGLICHKEIT -->
+    <section class="bg-slate-800 text-white py-8 border-b border-slate-700">
+      <div class="container mx-auto px-4 text-center">
+        <a href="https://calendly.com/statistik-writing/kostenloses-erstgesprach/" class="inline-block bg-brand-yellow text-slate-900 font-bold px-8 py-4 rounded-lg shadow-lg hover:bg-yellow-300 transition-all hover:scale-105">
+          Jetzt kostenloses Erstgespräch anfragen
+        </a>
+      </div>
+    </section>
+
+    <!-- 13. STANDORT & KONTAKT -->
     <section id="kontakt" class="bg-slate-50 py-16 md:py-20">
       <div class="container mx-auto px-4">
+        <div class="grid md:grid-cols-2 gap-12 items-center mb-16">
+          <div>
+            <h2 class="text-2xl md:text-3xl font-bold text-slate-900 mb-6">Unser Standort mitten in Berlin</h2>
+            <p class="text-slate-600 leading-relaxed mb-6">
+              Statistik Writing hat seinen Sitz im Zentrum der Hauptstadt. Von hier aus unterstützen wir zuverlässig Bachelor-, Master- und Promotionsarbeiten.
+            </p>
+          </div>
+          <div class="h-[300px] md:h-[350px] w-full bg-slate-200 rounded-xl overflow-hidden shadow-inner border border-slate-300 relative">
+             <iframe class="map-filter w-full h-full" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2428.3979609402795!2d13.391732076974335!3d52.50816893708874!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a851d2d6307367%3A0xf59437980351c2d3!2sJ%C3%BCdisches%20Museum%20Berlin!5e0!3m2!1sde!2sde!4v1712345678901!5m2!1sde!2sde" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+             <div class="absolute bottom-4 left-4 bg-white/90 px-4 py-2 rounded text-xs font-bold shadow-md">📍 Am Berlin Museum 6, 10969 Berlin</div>
+          </div>
+        </div>
+        
         <div class="grid lg:grid-cols-12 gap-12 items-start">
           <div class="lg:col-span-7 bg-white p-6 md:p-8 rounded-xl shadow-lg border border-slate-100">
             <h3 class="text-xl md:text-2xl font-bold text-slate-900 mb-2">Kontaktformular</h3>
             <p class="text-slate-500 text-sm mb-8">Kostenlos anfragen</p>
+            <!-- FORM UPDATE: mailto fallback setup, with updated fields -->
             <form class="space-y-4" action="mailto:kontakt@statistik-writing.com" method="POST" enctype="text/plain">
               <div class="grid md:grid-cols-2 gap-4">
-                <div><label class="form-label">Vorname *</label><input type="text" name="vorname" class="form-input" required></div>
-                <div><label class="form-label">Nachname *</label><input type="text" name="nachname" class="form-input" required></div>
+                <div>
+                  <label class="form-label">Vorname *</label>
+                  <input type="text" name="vorname" class="form-input" required>
+                </div>
+                <div>
+                  <label class="form-label">Nachname *</label>
+                  <input type="text" name="nachname" class="form-input" required>
+                </div>
               </div>
               <div class="grid md:grid-cols-2 gap-4">
-                <div><label class="form-label">E-Mail *</label><input type="email" name="email" class="form-input" required></div>
-                <div><label class="form-label">Telefon/WhatsApp *</label><input type="tel" name="telefon" class="form-input" required></div>
+                <div>
+                  <label class="form-label">E-Mail *</label>
+                  <input type="email" name="email" class="form-input" required>
+                </div>
+                <div>
+                  <label class="form-label">Telefon/WhatsApp *</label>
+                  <input type="tel" name="telefon" class="form-input" required>
+                </div>
               </div>
-              <!-- Weitere Felder (Dropdowns) wie im vorherigen Code -->
-               <div class="grid md:grid-cols-2 gap-4">
-                <div><label class="form-label">Abschlussart</label><select name="abschluss" class="form-input"><option>Bachelor</option><option>Master</option><option>Promotion</option></select></div>
-                <div><label class="form-label">Tool</label><select name="tool" class="form-input"><option>SPSS</option><option>R</option><option>Python</option><option>Stata</option></select></div>
+              <div class="grid md:grid-cols-2 gap-4">
+                <div>
+                  <label class="form-label">Abschlussart</label>
+                  <select name="abschluss" class="form-input">
+                    <option>Bachelor</option>
+                    <option>Master</option>
+                    <option>Promotion</option>
+                    <option>Sonstiges</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="form-label">Fachbereich</label>
+                  <select name="fachbereich" class="form-input">
+                    <option>Medizin</option>
+                    <option>Psychologie</option>
+                    <option>Wirtschaft</option>
+                    <option>Sozialwissenschaften</option>
+                    <option>Sonstiges</option>
+                  </select>
+                </div>
               </div>
-              <div><label class="form-label">Nachricht</label><textarea name="nachricht" rows="4" class="form-input"></textarea></div>
+              <div class="grid md:grid-cols-2 gap-4">
+                <div>
+                  <label class="form-label">Deadline</label>
+                  <input type="date" name="deadline" class="form-input">
+                </div>
+                <div>
+                  <label class="form-label">Tool</label>
+                  <select name="tool" class="form-input">
+                    <option>R</option>
+                    <option>SPSS</option>
+                    <option>Python</option>
+                    <option>STATA</option>
+                    <option>Excel</option>
+                    <option>Sonstiges</option>
+                  </select>
+                </div>
+              </div>
+              <div class="grid md:grid-cols-2 gap-4">
+                <div>
+                  <label class="form-label">Datensatz-Status *</label>
+                  <select name="status" class="form-input" required>
+                    <option value="" disabled selected>Bitte wählen...</option>
+                    <option>Vorhanden</option>
+                    <option>In Erhebung</option>
+                    <option>Nicht vorhanden</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="form-label">Ziel *</label>
+                  <select name="ziel" class="form-input" required>
+                     <option value="" disabled selected>Bitte wählen...</option>
+                    <option>Bestnote</option>
+                    <option>Bestehen</option>
+                    <option>Publikation</option>
+                  </select>
+                </div>
+              </div>
+              <div>
+                <label class="form-label">Wie können wir konkret helfen? (1-2 Sätze)</label>
+                <textarea name="nachricht" rows="4" class="form-input"></textarea>
+              </div>
+              
               <div class="space-y-2 pt-2">
                 <label class="flex items-start gap-2 text-xs text-slate-500 cursor-pointer">
                   <input type="checkbox" name="datenschutz" class="mt-1" required>
-                  <span>Ich willige in die Kontaktaufnahme ein & akzeptiere den Datenschutz. *</span>
+                  <span>Ich willige in die Kontaktaufnahme per Telefon/E-Mail/WhatsApp ein und habe Datenschutz & Impressum zur Kenntnis genommen. *</span>
+                </label>
+                 <label class="flex items-start gap-2 text-xs text-slate-500 cursor-pointer">
+                  <input type="checkbox" name="whatsapp_optin" class="mt-1">
+                  <span>Optional: Ich möchte über WhatsApp kontaktiert werden.</span>
                 </label>
               </div>
-              <button type="submit" class="w-full bg-blue-800 text-white font-bold py-4 rounded hover:bg-blue-900 transition-colors shadow-md mt-4">Jetzt kostenlos anfragen</button>
+
+              <button type="submit" class="w-full bg-blue-800 text-white font-bold py-4 rounded hover:bg-blue-900 transition-colors shadow-md mt-4">
+                Jetzt kostenlos anfragen
+              </button>
             </form>
           </div>
           <div class="lg:col-span-5 space-y-8 pt-8">
-             <h4 class="font-bold text-xl">Kontakt</h4>
-             <p>Wir melden uns schnellstmöglich.</p>
-             <p class="font-bold text-blue-700 text-xl">0155 / 664 25 557</p>
+            <div class="flex gap-4">
+              <div class="w-12 h-12 bg-white border border-slate-200 rounded-lg flex items-center justify-center text-slate-700 shrink-0">✔️</div>
+              <div><h4 class="font-bold text-slate-900">Kostenlos anfragen</h4><p class="text-sm text-slate-500">Unverbindliches Angebot erhalten.</p></div>
+            </div>
+            <div class="flex gap-4">
+               <div class="w-12 h-12 bg-white border border-slate-200 rounded-lg flex items-center justify-center text-slate-700 shrink-0">📞</div>
+              <div><h4 class="font-bold text-slate-900">Schneller Rückruf</h4><p class="text-sm text-slate-500">Wir sind unter <strong>0155 / 664 25 557</strong> erreichbar.</p></div>
+            </div>
           </div>
         </div>
       </div>
@@ -443,9 +869,9 @@
         <div>
           <h4 class="font-bold text-white mb-4">Rechtliches</h4>
           <ul class="space-y-2">
-            <li><a href="#" class="hover:text-blue-400">Impressum</a></li>
-            <li><a href="#" class="hover:text-blue-400">Datenschutz</a></li>
-            <li><a href="#" class="hover:text-blue-400">AGB</a></li>
+            <li><a href="impressum.html" class="hover:text-blue-400">Impressum</a></li>
+            <li><a href="datenschutz.html" class="hover:text-blue-400">Datenschutz</a></li>
+            <li><a href="agb.html" class="hover:text-blue-400">AGB</a></li>
           </ul>
         </div>
         <div>
