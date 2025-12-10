@@ -138,14 +138,14 @@
   <header class="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-slate-200 transition-all">
     <div class="container mx-auto px-4 py-3 md:py-4 flex justify-between items-center">
       
-      <!-- 1. LOGO (Sichtbar auf Handy & Desktop) -->
-      <a href="#" class="flex-shrink-0">
+      <!-- 1. LOGO (Vergrößert) -->
+      <a href="#" class="flex-shrink-0 block">
         <!-- 
-           h-10    = Handy: 40px hoch (Kompakt)
-           md:h-14 = Desktop: 56px hoch (Groß)
+           h-14    = Handy: 56px hoch (Vorher 40px) -> Deutlich größer
+           md:h-20 = Desktop: 80px hoch (Vorher 56px) -> Sehr präsent
            w-auto  = Breite passt sich automatisch an
         -->
-        <img src="./images/Logo_komplett.jpg" alt="Statistik Writing Logo" class="h-10 md:h-14 w-auto object-contain">
+        <img src="./images/Logo_komplett.jpg" alt="Statistik Writing Logo" class="h-14 md:h-20 w-auto object-contain">
       </a>
 
       <!-- 2. NAVIGATION (Nur auf Desktop sichtbar) -->
@@ -158,14 +158,14 @@
 
       <!-- 3. BUTTONS -->
       <div class="flex items-center gap-4">
-        <!-- Telefonnummer: Nur am PC sichtbar (hidden xl:block) -->
+        <!-- Telefonnummer: Nur am PC sichtbar -->
         <a href="tel:+4915566425557" class="hidden xl:block text-sm font-bold text-slate-700 hover:text-blue-700">0155 / 664 25 557</a>
         
-        <!-- Button: Text ändert sich je nach Bildschirmgröße -->
+        <!-- Button -->
         <a href="https://calendly.com/statistik-writing/kostenloses-erstgesprach/" class="bg-blue-700 hover:bg-blue-800 text-white px-4 py-2 md:px-6 md:py-2.5 rounded-lg font-bold text-xs md:text-sm transition-all shadow-lg shadow-blue-700/20 transform hover:-translate-y-0.5 whitespace-nowrap">
-          <!-- Text auf Handy (kurz): -->
+          <!-- Kurzversion für Mobile, damit das große Logo passt -->
           <span class="md:hidden">Erstgespräch</span>
-          <!-- Text auf Desktop (lang): -->
+          <!-- Langversion für Desktop -->
           <span class="hidden md:inline">Jetzt Erstgespräch vereinbaren !</span>
         </a>
       </div>
