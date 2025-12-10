@@ -806,9 +806,11 @@
       </div>
     </section> -->
 
-    <!-- 13. STANDORT & KONTAKT -->
+   <!-- 13. STANDORT & KONTAKT -->
     <section id="kontakt" class="bg-slate-50 py-16 md:py-20">
       <div class="container mx-auto px-4">
+        
+        <!-- OBERER TEIL: TEASER & KARTE -->
         <div class="grid md:grid-cols-2 gap-12 items-center mb-16">
           <div>
             <h2 class="text-2xl md:text-3xl font-bold text-slate-900 mb-6">Unser Standort mitten in Berlin</h2>
@@ -822,12 +824,23 @@
           </div>
         </div>
         
+        <!-- UNTERER TEIL: FORMULAR & KONTAKTINFOS -->
         <div class="grid lg:grid-cols-12 gap-12 items-start">
+          
+          <!-- LINKES FORMULAR (Funktional via FormSubmit) -->
           <div class="lg:col-span-7 bg-white p-6 md:p-8 rounded-xl shadow-lg border border-slate-100">
             <h3 class="text-xl md:text-2xl font-bold text-slate-900 mb-2">Kontaktformular</h3>
             <p class="text-slate-500 text-sm mb-8">Kostenlos anfragen</p>
-            <!-- FORM UPDATE: Fallback UI (Separate action, no Calendly link here) -->
-            <form class="space-y-4" action="mailto:kontakt@statistik-writing.com" method="POST" enctype="text/plain">
+            
+            <form class="space-y-4" action="https://formsubmit.co/kontakt@statistik-writing.com" method="POST">
+              
+              <!-- VERSTECKTE EINSTELLUNGEN FÜR FORMSUBMIT -->
+              <input type="hidden" name="_subject" value="Neue Anfrage: Statistik Writing Website">
+              <input type="hidden" name="_captcha" value="false">
+              <input type="hidden" name="_next" value="https://www.statistik-writing.com/danke.html">
+              <input type="text" name="_honey" style="display:none">
+
+              <!-- EINGABEFELDER -->
               <div class="grid md:grid-cols-2 gap-4">
                 <div>
                   <label class="form-label">Vorname *</label>
@@ -927,6 +940,8 @@
               </button>
             </form>
           </div>
+
+          <!-- RECHTE INFO SPALTE -->
           <div class="lg:col-span-5 space-y-8 pt-8">
             <div class="flex gap-4">
               <div class="w-12 h-12 bg-white border border-slate-200 rounded-lg flex items-center justify-center text-slate-700 shrink-0">✔️</div>
@@ -934,10 +949,10 @@
             </div>
             <div class="flex gap-4">
                <div class="w-12 h-12 bg-white border border-slate-200 rounded-lg flex items-center justify-center text-slate-700 shrink-0">📞</div>
-              <!-- PHONE UPDATE -->
               <div><h4 class="font-bold text-slate-900">Schneller Rückruf</h4><p class="text-sm text-slate-500">Wir sind unter <strong>0155 / 664 25 557</strong> erreichbar.</p></div>
             </div>
           </div>
+
         </div>
       </div>
     </section>
