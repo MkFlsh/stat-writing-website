@@ -137,18 +137,29 @@
   <!-- HEADER -->
   <header class="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-slate-200 transition-all">
     <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-      <a href="#" class="flex items-center gap-2 group">
-        <div class="h-9 w-9 bg-blue-700 text-white flex items-center justify-center font-bold rounded-lg text-xl shadow-sm">S</div>
-        <span class="font-bold text-xl tracking-tight text-slate-900 group-hover:text-blue-700 transition-colors">
-          Statistik Writing
-        </span>
+      
+      <!-- LOGO BEREICH (Grafik + Text nebeneinander) -->
+      <a href="#" class="flex items-center gap-3 group">
+        
+        <!-- 1. Die Grafik (Das JPEG) -->
+        <!-- h-10 entspricht ca. 40px Höhe -->
+        <img src="./images/Statistik-Writing-Logo.jpeg" alt="Logo Icon" class="h-10 w-auto object-contain">
+        
+        <!-- 2. Der Text (Das SVG) -->
+        <!-- h-6 auf Handy, h-8 auf Desktop -->
+        <img src="./images/Logo_Statistik-Writing.svg" alt="Statistik Writing" class="h-6 md:h-8 w-auto object-contain">
+      
       </a>
+
+      <!-- NAVIGATION -->
       <nav class="hidden lg:flex items-center gap-8 text-sm font-bold text-slate-600 uppercase tracking-wide">
         <a href="#probleme" class="hover:text-blue-700 transition-colors">Probleme</a>
         <a href="#kompetenz" class="hover:text-blue-700 transition-colors">Kompetenz</a>
         <a href="#testimonials" class="hover:text-blue-700 transition-colors">Erfolge</a>
         <a href="#prozess" class="hover:text-blue-700 transition-colors">Ablauf</a>
       </nav>
+
+      <!-- BUTTONS -->
       <div class="flex items-center gap-4">
         <a href="tel:+4915566425557" class="hidden xl:block text-sm font-bold text-slate-700 hover:text-blue-700">0155 / 664 25 557</a>
         <a href="https://calendly.com/statistik-writing/kostenloses-erstgesprach/" class="bg-blue-700 hover:bg-blue-800 text-white px-6 py-2.5 rounded-lg font-bold text-sm transition-all shadow-lg shadow-blue-700/20 transform hover:-translate-y-0.5">
